@@ -31,6 +31,24 @@
             from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Estilo do Acordeão de Dúvidas */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: slideDown 0.3s ease-in-out;
+        }
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        details[open] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 h-full flex flex-col md:flex-row">
@@ -82,6 +100,9 @@
             </button>
             <button onclick="showSection('farmacia')" class="nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
                 <i class="fa-solid fa-pills w-5"></i> Farmácia & Vitamina D
+            </button>
+            <button onclick="showSection('duvidas')" class="nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
+                <i class="fa-solid fa-circle-question w-5"></i> Dúvidas & Condutas
             </button>
             <button onclick="showSection('dica')" class="nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
                 <i class="fa-solid fa-lightbulb w-5"></i> Dica de Ouro
@@ -304,6 +325,131 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- SECTION: DÚVIDAS COMUNS -->
+        <div id="duvidas" class="content-section max-w-4xl mx-auto hidden fade-in">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-teal-900 mb-2">Dúvidas & Condutas</h2>
+                <p class="text-slate-600">Perguntas frequentes e orientações rápidas para o dia a dia.</p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- Item 1: Febre -->
+                <details class="bg-white border border-slate-200 rounded-xl shadow-sm group">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-slate-50 hover:bg-slate-100 transition rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-temperature-full"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-800">Febre: Quando medicar?</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="p-5 border-t border-slate-100 text-slate-600 text-sm space-y-3">
+                        <p><strong>Definição:</strong> Temperatura axilar acima de <strong>37.8ºC</strong>.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Conduta inicial:</strong> Retirar excesso de roupas, oferecer líquidos (seio materno ou água se > 6m) e observar o estado geral.</li>
+                            <li><strong>Medicação:</strong> Indicada se houver desconforto (choro, prostração) ou febre persistente > 38ºC.</li>
+                            <li><strong>Sinal de Alerta:</strong> Febre em bebês < 3 meses deve ser avaliada imediatamente pelo médico.</li>
+                        </ul>
+                        <div class="bg-teal-50 p-3 rounded text-teal-800 text-xs">
+                            <strong>Dica:</strong> Banho morno pode ajudar no conforto, mas a medicação é o padrão ouro para baixar a temperatura se houver incômodo.
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Item 2: Cólicas -->
+                <details class="bg-white border border-slate-200 rounded-xl shadow-sm group">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-slate-50 hover:bg-slate-100 transition rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-purple-100 text-purple-600 w-8 h-8 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-baby-carriage"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-800">Cólicas do Lactente</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="p-5 border-t border-slate-100 text-slate-600 text-sm space-y-3">
+                        <p>Muito comum entre 15 dias e 3 meses de vida devido à imaturidade intestinal.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Medidas não-farmacológicas:</strong> Massagem abdominal (sentido horário), movimento de "bicicleta" com as pernas, calor local (bolsa morna ou barriga com barriga), banho de ofurô.</li>
+                            <li><strong>Medicação:</strong> Simeticona (gases) ou probióticos específicos podem ser prescritos pelo pediatra, mas a eficácia varia.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Item 3: Assaduras -->
+                <details class="bg-white border border-slate-200 rounded-xl shadow-sm group">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-slate-50 hover:bg-slate-100 transition rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-pink-100 text-pink-600 w-8 h-8 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-baby"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-800">Assaduras (Dermatite de Fralda)</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="p-5 border-t border-slate-100 text-slate-600 text-sm space-y-3">
+                        <p><strong>Prevenção:</strong> Troca frequente de fraldas, limpeza suave (algodão e água morna preferencialmente) e secagem completa.</p>
+                        <p><strong>Tratamento:</strong></p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Leve/Moderada:</strong> Pomadas de barreira (Óxido de Zinco + Vitamina A/D) a cada troca.</li>
+                            <li><strong>Com fungo (bolinhas satélites):</strong> Geralmente requer Nistatina tópica (prescrição médica).</li>
+                            <li><strong>Dica de Ouro:</strong> Deixar o bumbum "respirar" sem fralda por alguns minutos ao sol (indireto/filtrado) ajuda na cicatrização.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Item 4: Regurgitação x Vômito -->
+                <details class="bg-white border border-slate-200 rounded-xl shadow-sm group">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-slate-50 hover:bg-slate-100 transition rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-orange-100 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-faucet-drip"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-800">Regurgitação ("Gofada") vs Vômito</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="p-5 border-t border-slate-100 text-slate-600 text-sm space-y-3">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 p-3 rounded border border-green-100">
+                                <strong class="text-green-800 block mb-1">Regurgitação (Normal)</strong>
+                                Retorno passivo de leite, sem esforço, geralmente após mamar. O bebê continua feliz e ganhando peso.
+                                <br><em>Conduta:</em> Elevar cabeceira, arrotar após mamar.
+                            </div>
+                            <div class="bg-red-50 p-3 rounded border border-red-100">
+                                <strong class="text-red-800 block mb-1">Vômito (Atenção)</strong>
+                                Saída com jato, esforço, náusea. Pode indicar infecção, intolerância ou refluxo patológico.
+                                <br><em>Conduta:</em> Avaliar hidratação e encaminhar se persistente.
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                 <!-- Item 5: Vacinas -->
+                 <details class="bg-white border border-slate-200 rounded-xl shadow-sm group">
+                    <summary class="flex items-center justify-between p-5 cursor-pointer bg-slate-50 hover:bg-slate-100 transition rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-syringe"></i>
+                            </div>
+                            <h3 class="font-semibold text-slate-800">Reações Vacinais</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </summary>
+                    <div class="p-5 border-t border-slate-100 text-slate-600 text-sm space-y-3">
+                        <p>É comum ocorrer dor, vermelhidão local ou febre baixa nas primeiras 24-48h.</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Local da injeção:</strong> Compressa fria nas primeiras 24h para reduzir dor e inchaço. (Não massagear se for BCG).</li>
+                            <li><strong>Febre/Dor:</strong> Antitérmico/Analgésico (Paracetamol ou Dipirona) conforme dose habitual se houver desconforto. Não fazer profilático (antes da vacina).</li>
+                            <li><strong>BCG:</strong> A "feridinha" é esperada semanas depois. Não espremer, não passar pomada, apenas lavar com água e sabão.</li>
+                        </ul>
+                    </div>
+                </details>
+
             </div>
         </div>
 
