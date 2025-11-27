@@ -3,94 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Enf. Larissa | Master Edition</title>
+    <title>Portal Enf. Larissa | Clinical Masterpiece v10</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
-        /* Animações e Utilitários */
-        .fade-in { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Cores Semânticas */
+        .theme-puer { --primary: #0f766e; --light: #f0fdfa; }
+        .theme-gest { --primary: #be185d; --light: #fdf2f8; }
+        .theme-esto { --primary: #b45309; --light: #fffbeb; }
+        
+        /* Navegação */
+        .nav-btn.active { border-left: 4px solid; font-weight: 700; background-color: rgba(0,0,0,0.05); }
+        .nav-btn-puer.active { border-color: #0f766e; color: #0f766e; background-color: #f0fdfa; }
+        .nav-btn-gest.active { border-color: #be185d; color: #be185d; background-color: #fdf2f8; }
+        .nav-btn-esto.active { border-color: #b45309; color: #b45309; background-color: #fffbeb; }
 
-        .nav-btn-puer.active { background-color: #0d9488; color: white; border-left: 4px solid #134e4a; font-weight: 600; }
-        .nav-btn-gest.active { background-color: #db2777; color: white; border-left: 4px solid #831843; font-weight: 600; }
+        /* Utilitários */
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .dev-tab.active { background-color: #f0fdfa; border-color: #0d9488; color: #0f766e; box-shadow: 0 2px 4px rgba(13, 148, 136, 0.1); }
-        
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
+        details > summary { list-style: none; cursor: pointer; }
         details[open] summary ~ * { animation: slideDown 0.3s ease-in-out; }
-        @keyframes slideDown { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { 0% { opacity: 0; transform: translateY(-5px); } 100% { opacity: 1; transform: translateY(0); } }
         details[open] .fa-chevron-down { transform: rotate(180deg); }
         
+        .red-flag { border-left: 4px solid #ef4444; background-color: #fef2f2; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; }
+        .card-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 h-full">
 
-    <!-- ================= TELA HOME ================= -->
-    <div id="view-home" class="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-slate-200 fade-in">
+    <!-- ================= DASHBOARD ================= -->
+    <div id="view-home" class="min-h-screen flex flex-col items-center justify-center p-6 bg-slate-50 fade-in">
         <div class="text-center mb-12">
-            <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white shadow-xl mb-6 text-teal-600 text-4xl border-4 border-teal-50">
-                <i class="fa-solid fa-user-nurse"></i>
+            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl mx-auto mb-4 border-4 border-slate-200">
+                <i class="fa-solid fa-user-nurse text-4xl text-slate-700"></i>
             </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 tracking-tight">Portal Enf. Larissa</h1>
-            <p class="text-lg text-slate-500 mt-3 font-medium">Sistema Integrado de Apoio à Decisão Clínica</p>
+            <h1 class="text-4xl font-extrabold text-slate-800">Portal Enf. Larissa</h1>
+            <p class="text-slate-500 mt-2">Suporte à Decisão Clínica Avançada v10.0</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl w-full">
-            <!-- Card Puericultura -->
-            <button onclick="navigateTo('puericultura')" class="group bg-white p-8 rounded-3xl shadow-xl border border-slate-100 hover:border-teal-200 card-hover transition-all duration-300 text-left relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-40 h-40 bg-teal-50 rounded-bl-[100px] -mr-10 -mt-10 transition-transform group-hover:scale-110 duration-500"></div>
-                <div class="relative z-10">
-                    <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-baby"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-3 group-hover:text-teal-700">Puericultura</h2>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Protocolos completos de crescimento, desenvolvimento, farmácia clínica detalhada, fórmulas infantis e manejo de intercorrências.</p>
-                    <ul class="text-xs text-teal-600 space-y-1 mb-6 font-medium">
-                        <li>• Mini-Bulas de Medicamentos</li>
-                        <li>• Avaliação Neurológica Profunda</li>
-                        <li>• Guia de Fórmulas Especiais</li>
-                    </ul>
-                    <div class="flex items-center text-teal-700 font-bold text-sm uppercase tracking-wide">
-                        Acessar Módulo <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-                    </div>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl w-full">
+            <!-- Puericultura -->
+            <button onclick="navigateTo('puericultura')" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 border-t-8 border-t-teal-600 card-hover transition-all text-left">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="bg-teal-50 p-3 rounded-xl"><i class="fa-solid fa-baby text-2xl text-teal-600"></i></div>
+                    <span class="text-xs font-bold text-teal-600 uppercase tracking-wide">Infantil</span>
                 </div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">Puericultura</h2>
+                <p class="text-sm text-slate-500 mb-4">Avaliação completa de CD, Reflexos Primitivos detalhados, Farmácia pediátrica segura e SOAP.</p>
+                <div class="text-teal-600 font-bold text-sm flex items-center">Acessar <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i></div>
             </button>
 
-            <!-- Card Pré-Natal -->
-            <button onclick="navigateTo('gestante')" class="group bg-white p-8 rounded-3xl shadow-xl border border-slate-100 hover:border-pink-200 card-hover transition-all duration-300 text-left relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-40 h-40 bg-pink-50 rounded-bl-[100px] -mr-10 -mt-10 transition-transform group-hover:scale-110 duration-500"></div>
-                <div class="relative z-10">
-                    <div class="w-16 h-16 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:bg-pink-600 group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-person-pregnant"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-3 group-hover:text-pink-700">Pré-Natal</h2>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Acompanhamento obstétrico de alto nível, calculadora gestacional, interpretação de exames, estática fetal e manejo de queixas.</p>
-                    <ul class="text-xs text-pink-600 space-y-1 mb-6 font-medium">
-                        <li>• Calculadora IG/DPP Automática</li>
-                        <li>• Guia de Posições e Parto</li>
-                        <li>• Condutas em Queixas Comuns</li>
-                    </ul>
-                    <div class="flex items-center text-pink-700 font-bold text-sm uppercase tracking-wide">
-                        Acessar Módulo <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
-                    </div>
+            <!-- Pré-Natal -->
+            <button onclick="navigateTo('gestante')" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 border-t-8 border-t-pink-600 card-hover transition-all text-left">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="bg-pink-50 p-3 rounded-xl"><i class="fa-solid fa-person-pregnant text-2xl text-pink-600"></i></div>
+                    <span class="text-xs font-bold text-pink-600 uppercase tracking-wide">Obstetrícia</span>
                 </div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">Pré-Natal</h2>
+                <p class="text-sm text-slate-500 mb-4">Rastreio de Pré-Eclâmpsia, Calculadoras (IG/DPP), Exames por trimestre e Manobras de Leopold.</p>
+                <div class="text-pink-600 font-bold text-sm flex items-center">Acessar <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i></div>
+            </button>
+
+            <!-- Estomoterapia -->
+            <button onclick="navigateTo('estomoterapia')" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 border-t-8 border-t-amber-600 card-hover transition-all text-left">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="bg-amber-50 p-3 rounded-xl"><i class="fa-solid fa-layer-group text-2xl text-amber-600"></i></div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wide">Feridas</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">Estomoterapia</h2>
+                <p class="text-sm text-slate-500 mb-4">Protocolo TIME, Classificação de LPP (NPUAP), Guia avançado de coberturas e desbridamento.</p>
+                <div class="text-amber-600 font-bold text-sm flex items-center">Acessar <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i></div>
             </button>
         </div>
         
         <footer class="mt-16 text-slate-400 text-xs font-medium">
-            Versão 7.0 • Developed for Nurse Larissa
+            Versão 10.0 (Final) • Developed for Nurse Larissa
         </footer>
     </div>
 
     <!-- ================= VIEW PUERICULTURA ================= -->
-    <div id="view-puericultura" class="hidden h-full flex flex-col md:flex-row">
-        <!-- Sidebar Puericultura -->
+    <div id="view-puericultura" class="hidden h-full flex flex-col md:flex-row theme-puer">
         <aside class="w-full md:w-72 bg-white border-r border-slate-200 flex-col h-auto md:h-screen sticky top-0 z-20 hidden md:flex shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
             <div class="p-6 border-b border-slate-100 bg-teal-50 flex justify-between items-center">
                 <div>
@@ -100,421 +98,316 @@
                 <i class="fa-solid fa-baby text-teal-200 text-3xl"></i>
             </div>
             <nav class="flex-1 p-4 space-y-2 overflow-y-auto text-sm custom-scrollbar">
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mt-2 mb-1">Avaliação</p>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mt-2 mb-1">Clínica</p>
                 <button onclick="showSection('puer-anamnese')" class="nav-btn-puer active w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-clipboard-list w-4"></i> Anamnese</button>
                 <button onclick="showSection('puer-exame')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-stethoscope w-4"></i> Exame Físico</button>
                 <button onclick="showSection('puer-reflexos')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-brain w-4"></i> Neuro & Reflexos</button>
                 <button onclick="showSection('puer-desenvolvimento')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-shapes w-4"></i> Marcos (DNPM)</button>
                 
                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mt-6 mb-1">Conduta</p>
+                <button onclick="showSection('puer-encaminhamentos')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-user-doctor w-4"></i> Encaminhamentos</button>
                 <button onclick="showSection('puer-farmacia')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-pills w-4"></i> Farmácia (Bulas)</button>
                 <button onclick="showSection('puer-formulas')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-baby-carriage w-4"></i> Fórmulas Infantis</button>
-                <button onclick="showSection('puer-encaminhamentos')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-user-doctor w-4"></i> Encaminhamentos</button>
                 <button onclick="showSection('puer-duvidas')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-circle-question w-4"></i> Dúvidas Frequentes</button>
                 
                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mt-6 mb-1">Registro</p>
-                <button onclick="showSection('puer-evolucao')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-file-medical w-4"></i> Gerador SOAP</button>
+                <button onclick="showSection('puer-soap')" class="nav-btn-puer w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-file-medical w-4"></i> Gerador SOAP</button>
             </nav>
         </aside>
-
-        <!-- Mobile Header Puericultura -->
-        <header class="md:hidden sticky top-0 bg-teal-700 text-white shadow-md z-30 w-full flex items-center justify-between p-4">
-            <div class="flex items-center gap-3">
-                <button onclick="navigateTo('home')" class="mr-2 text-teal-200 hover:text-white"><i class="fa-solid fa-arrow-left"></i></button>
-                <h1 class="font-bold text-lg">Puericultura</h1>
-            </div>
-            <button onclick="toggleMobileMenu('puer-mobile-menu')" class="p-2"><i class="fa-solid fa-bars text-xl"></i></button>
+        
+        <!-- Mobile Header Puer -->
+        <header class="md:hidden sticky top-0 bg-teal-700 text-white shadow-md z-30 w-full flex justify-between p-4 items-center">
+            <div class="flex items-center gap-2"><button onclick="navigateTo('home')"><i class="fa-solid fa-arrow-left mr-2"></i></button> <h1 class="font-bold">Puericultura</h1></div>
+            <button onclick="toggleMobileMenu('puer-mobile-menu')"><i class="fa-solid fa-bars"></i></button>
         </header>
 
-        <!-- Main Puericultura -->
-        <main class="flex-1 p-4 md:p-10 overflow-y-auto h-[calc(100vh-64px)] md:h-screen bg-slate-50 scroll-smooth">
+        <!-- Mobile Menu Puericultura -->
+        <div id="puer-mobile-menu" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden" onclick="this.classList.add('hidden')">
+             <div class="bg-white w-72 h-full p-4 space-y-2 pt-16 overflow-y-auto" onclick="event.stopPropagation()">
+                <button onclick="document.getElementById('puer-mobile-menu').classList.add('hidden')" class="absolute top-4 right-4 text-slate-500 p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+                <button onclick="showSection('puer-anamnese')" class="w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700"><i class="fa-solid fa-clipboard-list w-5 mr-2 text-teal-600"></i> Anamnese</button>
+                <button onclick="showSection('puer-exame')" class="w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700"><i class="fa-solid fa-stethoscope w-5 mr-2 text-teal-600"></i> Exame Físico</button>
+                <!-- ... outros botões mobile ... -->
+                <button onclick="showSection('puer-farmacia')" class="w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700"><i class="fa-solid fa-pills w-5 mr-2 text-teal-600"></i> Farmácia</button>
+             </div>
+        </div>
+
+        <!-- Conteúdo Puericultura -->
+        <main class="flex-1 p-4 md:p-10 overflow-y-auto h-screen bg-slate-50 scroll-smooth">
             
             <!-- Anamnese -->
             <div id="puer-anamnese" class="content-section fade-in pb-20">
-                <div class="mb-8 border-b border-slate-200 pb-4">
-                    <h2 class="text-3xl font-bold text-slate-800">Anamnese Detalhada</h2>
-                    <p class="text-slate-500">Investigação clínica estruturada.</p>
-                </div>
-                <div class="grid gap-4">
-                    <div class="bg-white p-6 rounded-xl border-l-4 border-teal-500 shadow-sm">
-                        <h3 class="font-bold text-teal-800 mb-3">Roteiro de Perguntas</h3>
-                        <div class="space-y-3">
-                            <label class="flex items-start gap-3 text-sm text-slate-700"><input type="checkbox" class="mt-1 text-teal-600 rounded"> <span><strong>Queixa Principal:</strong> Motivo, início, duração, sintomas associados (febre, vômito, diarreia).</span></label>
-                            <label class="flex items-start gap-3 text-sm text-slate-700"><input type="checkbox" class="mt-1 text-teal-600 rounded"> <span><strong>Alimentação:</strong> AME (freq/pega), Fórmula (diluição/volume), IA (aceitação/textura).</span></label>
-                            <label class="flex items-start gap-3 text-sm text-slate-700"><input type="checkbox" class="mt-1 text-teal-600 rounded"> <span><strong>Eliminações:</strong> Diurese (cor/cheiro), Evacuação (aspecto/esforço).</span></label>
-                            <label class="flex items-start gap-3 text-sm text-slate-700"><input type="checkbox" class="mt-1 text-teal-600 rounded"> <span><strong>Sono:</strong> Onde dorme? Posição? Despertares noturnos?</span></label>
-                            <label class="flex items-start gap-3 text-sm text-slate-700"><input type="checkbox" class="mt-1 text-teal-600 rounded"> <span><strong>Ambiente/Social:</strong> Fumantes? Animais? Creche? Quem cuida?</span></label>
+                <h2 class="text-2xl font-bold text-teal-900 mb-4 border-b border-teal-200 pb-2">Anamnese Detalhada</h2>
+                <div class="space-y-4">
+                    <details class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 group" open>
+                        <summary class="font-bold text-slate-800 flex justify-between">1. Identificação e Queixa <i class="fa-solid fa-chevron-down text-slate-400"></i></summary>
+                        <div class="mt-3 text-sm text-slate-600 space-y-2">
+                            <p><strong>Identificação:</strong> Nome, idade cronológica e idade corrigida (se prematuro).</p>
+                            <p><strong>QP (Queixa Principal):</strong> "Como ele está? Alguma preocupação?" (Febre, tosse, diarreia, choro excessivo).</p>
+                            <p><strong>HDA:</strong> Início dos sintomas, duração, medicação em uso.</p>
                         </div>
-                    </div>
+                    </details>
+                    <details class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 group">
+                        <summary class="font-bold text-slate-800 flex justify-between">2. Antecedentes (Gestação/Parto) <i class="fa-solid fa-chevron-down text-slate-400"></i></summary>
+                        <div class="mt-3 text-sm text-slate-600 space-y-2">
+                            <ul class="list-disc pl-5">
+                                <li>Pré-natal completo? Intercorrências (HAS, Diabetes, Infecções)?</li>
+                                <li>Parto: Tipo, IG (Termo/Pré), APGAR (hipóxia?), Peso nasc.</li>
+                                <li>Triagens: Pezinho, Orelhinha, Olhinho, Coraçãozinho, Linguinha.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 group">
+                        <summary class="font-bold text-slate-800 flex justify-between">3. Alimentação e Hábitos <i class="fa-solid fa-chevron-down text-slate-400"></i></summary>
+                        <div class="mt-3 text-sm text-slate-600 space-y-2">
+                            <p><strong>Dieta:</strong> AME? Fórmula (Qual? Diluição correta?) IA (Aceitação/Textura).</p>
+                            <p><strong>Fisiológico:</strong> Diurese (cor/freq), Evacuação (Bristol, esforço), Sono (rotina/segurança).</p>
+                            <p><strong>Vacinas:</strong> Checar caderneta. Vitamina D/Ferro em uso?</p>
+                        </div>
+                    </details>
                 </div>
             </div>
 
             <!-- Exame Físico -->
             <div id="puer-exame" class="content-section hidden fade-in pb-20">
-                <div class="mb-8 border-b border-slate-200 pb-4">
-                    <h2 class="text-3xl font-bold text-slate-800">Exame Físico Cefalocaudal</h2>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                        <h3 class="font-bold text-blue-600 mb-3 flex items-center"><i class="fa-solid fa-ruler-combined mr-2"></i> Antropometria</h3>
-                        <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
-                            <li><strong>Peso, Estatura, PC:</strong> Plotar curvas OMS.</li>
-                            <li><strong>IMC:</strong> Avaliar > 2 anos.</li>
-                            <li class="text-red-500 font-bold">Red Flag: Curva descendente ou estagnada.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                         <h3 class="font-bold text-purple-600 mb-3 flex items-center"><i class="fa-solid fa-head-side-virus mr-2"></i> Cabeça & Pescoço</h3>
-                         <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
-                            <li><strong>Fontanelas:</strong> Tensão e tamanho (Bregmática fecha até 18m).</li>
-                            <li><strong>Olhos:</strong> Teste do Reflexo Vermelho (Bruckner). Estrabismo?</li>
-                            <li><strong>Boca:</strong> Freio lingual, Pérolas de Epstein, Dentes.</li>
-                         </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                         <h3 class="font-bold text-green-600 mb-3 flex items-center"><i class="fa-solid fa-lungs mr-2"></i> Tórax & Abdome</h3>
-                         <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
-                            <li><strong>Cardio:</strong> RCR 2T, sopros? (Femoral palpável?).</li>
-                            <li><strong>Respiratório:</strong> Tiragem? FR (contar 1 min).</li>
-                            <li><strong>Abdome:</strong> Hérnia umbilical? Coto umbilical? Massas?</li>
-                         </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                         <h3 class="font-bold text-orange-600 mb-3 flex items-center"><i class="fa-solid fa-child mr-2"></i> Genitália & Membros</h3>
-                         <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
-                            <li><strong>Masc:</strong> Testículos (Criptorquidia?), Fimose, Hipospádia.</li>
-                            <li><strong>Fem:</strong> Sinéquia? Secreção?</li>
-                            <li><strong>Quadril:</strong> Ortolani/Barlow (Displasia).</li>
-                         </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Reflexos -->
-            <div id="puer-reflexos" class="content-section hidden fade-in pb-20">
-                <div class="mb-8 border-b border-slate-200 pb-4">
-                    <h2 class="text-3xl font-bold text-slate-800">Exame Neurológico</h2>
-                    <p class="text-slate-500">Reflexos primitivos e sinais de alerta.</p>
-                </div>
-                
-                <div class="space-y-6">
-                    <!-- Cards Detalhados -->
-                    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                        <div class="bg-slate-50 px-6 py-3 font-bold text-slate-700 border-b">Reflexos de Sobrevivência (Face)</div>
-                        <div class="p-6 grid md:grid-cols-2 gap-6">
-                            <div>
-                                <div class="flex justify-between mb-1"><strong class="text-teal-700">Sucção</strong> <span class="text-xs bg-slate-100 px-2 rounded">0-3m</span></div>
-                                <p class="text-sm text-slate-600">Dedo mínimo no palato. Sucção deve ser forte e rítmica.</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1"><strong class="text-teal-700">Busca/Voracidade</strong> <span class="text-xs bg-slate-100 px-2 rounded">0-2m</span></div>
-                                <p class="text-sm text-slate-600">Toque na bochecha -> Vira o rosto e abre a boca.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                        <div class="bg-slate-50 px-6 py-3 font-bold text-slate-700 border-b">Membros e Tronco</div>
-                        <div class="p-6 grid md:grid-cols-2 gap-6">
-                            <div class="col-span-2 md:col-span-2 bg-blue-50 p-4 rounded-lg border border-blue-100">
-                                <div class="flex justify-between mb-2"><strong class="text-blue-800">Moro (Abraço)</strong> <span class="text-xs bg-white px-2 rounded font-bold text-blue-600">Fundamental</span></div>
-                                <p class="text-sm text-slate-700 mb-2">Queda súbita da cabeça (amparada). 1. Abdução/Extensão ("C") -> 2. Adução/Flexão.</p>
-                                <p class="text-xs text-red-600 font-bold">Assimetria = Clavícula quebrada ou Lesão Plexo Braquial.</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1"><strong class="text-teal-700">Preensão Palmar</strong> <span class="text-xs bg-slate-100 px-2 rounded">0-6m</span></div>
-                                <p class="text-sm text-slate-600">Pressão na palma -> Fecha mão. Se persistir, bloqueia a pinça voluntária.</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1"><strong class="text-teal-700">Preensão Plantar</strong> <span class="text-xs bg-slate-100 px-2 rounded">0-12m</span></div>
-                                <p class="text-sm text-slate-600">Pressão na base dos dedos pé -> Flexão dos dedos.</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1"><strong class="text-teal-700">Marcha Reflexa</strong> <span class="text-xs bg-slate-100 px-2 rounded">0-2m</span></div>
-                                <p class="text-sm text-slate-600">Pé na superfície + inclinação -> Passos alternados.</p>
-                            </div>
-                             <div>
-                                <div class="flex justify-between mb-1"><strong class="text-teal-700">Babinski</strong> <span class="text-xs bg-slate-100 px-2 rounded">0-18m</span></div>
-                                <p class="text-sm text-slate-600">Estímulo lateral pé -> Hálux estende, dedos abrem em leque.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-red-50 p-4 rounded-xl border-l-4 border-red-500 shadow-sm">
-                        <h3 class="text-red-800 font-bold mb-2"><i class="fa-solid fa-triangle-exclamation"></i> Red Flags Neurológicos</h3>
-                        <ul class="text-sm text-red-700 list-disc pl-5 space-y-1">
-                            <li><strong>Ausência:</strong> Depressão SNC, Hipotonia.</li>
-                            <li><strong>Exacerbação (Clônus inesgotável):</strong> Irritação SNC, Abstinência.</li>
-                            <li><strong>Persistência:</strong> Se reflexos primitivos não somem, sugere <strong>Paralisia Cerebral</strong>.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Farmácia Detalhada (Mini-Bulas) -->
-            <div id="puer-farmacia" class="content-section hidden fade-in pb-20">
-                <div class="mb-8 border-b border-slate-200 pb-4">
-                    <h2 class="text-3xl font-bold text-slate-800">Farmácia Pediátrica</h2>
-                    <p class="text-slate-500">Calculadora e Fichas Técnicas (Mini-Bulas).</p>
-                </div>
-
-                <!-- Calculadora -->
-                <div class="bg-teal-800 text-white p-6 rounded-2xl shadow-xl mb-10 relative overflow-hidden">
-                     <label class="block text-xs font-bold mb-2 uppercase tracking-wider text-teal-200">Calculadora Rápida (Peso da Criança)</label>
-                     <div class="flex items-center gap-4">
-                         <input type="number" id="puer-weight" class="w-32 bg-teal-900/50 border-2 border-teal-500 text-white text-3xl font-bold p-3 rounded-xl text-center focus:outline-none focus:border-white transition" placeholder="KG" oninput="calcPuerDose()">
-                         <div class="flex-1">
-                             <p class="text-2xl font-bold text-yellow-300"><span id="puer-result">0</span> gotas</p>
-                             <p class="text-sm text-teal-200">Dose Padrão: 1 gota/kg</p>
-                         </div>
-                     </div>
-                </div>
-
-                <!-- Mini-Bulas (Accordion) -->
-                <div class="space-y-4">
-                    
-                    <!-- Paracetamol -->
-                    <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
-                        <summary class="flex justify-between items-center p-4 cursor-pointer bg-slate-50 hover:bg-blue-50 transition">
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold">P</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Paracetamol</h3>
-                                    <p class="text-xs text-slate-500">Analgésico e Antitérmico (1ª Escolha)</p>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform group-open:rotate-180"></i>
-                        </summary>
-                        <div class="p-5 border-t border-slate-100 text-sm text-slate-600 bg-white space-y-3">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <strong class="text-blue-700 block mb-1">Apresentação Comum:</strong>
-                                    <p>Gotas 200mg/ml.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-blue-700 block mb-1">Dose Terapêutica:</strong>
-                                    <p>10 a 15 mg/kg/dose. (Na prática: <strong>1 gota/kg</strong>).</p>
-                                </div>
-                                <div>
-                                    <strong class="text-blue-700 block mb-1">Intervalo:</strong>
-                                    <p>4 a 6 horas. Máx 5 doses/dia.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-blue-700 block mb-1">Alertas:</strong>
-                                    <p>Hepatotóxico em superdose. Seguro para RN e Gestantes. Início de ação: 30-60 min.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-
-                    <!-- Dipirona -->
-                    <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
-                        <summary class="flex justify-between items-center p-4 cursor-pointer bg-slate-50 hover:bg-pink-50 transition">
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-8 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold">D</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Dipirona Sódica</h3>
-                                    <p class="text-xs text-slate-500">Analgésico Potente e Antitérmico</p>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform group-open:rotate-180"></i>
-                        </summary>
-                        <div class="p-5 border-t border-slate-100 text-sm text-slate-600 bg-white space-y-3">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <strong class="text-pink-700 block mb-1">Apresentação:</strong>
-                                    <p>Gotas 500mg/ml.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-pink-700 block mb-1">Dose:</strong>
-                                    <p>10 a 25 mg/kg/dose. (Prática: <strong>1 gota/kg</strong>, máx 40 gotas).</p>
-                                </div>
-                                <div>
-                                    <strong class="text-pink-700 block mb-1">Contraindicação:</strong>
-                                    <p>< 3 meses ou < 5kg. Alergia a dipirona.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-pink-700 block mb-1">Alertas:</strong>
-                                    <p>Risco de hipotensão se administrado rápido (IV). Efeito dura 4-6h.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-
-                    <!-- Ibuprofeno -->
-                    <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
-                        <summary class="flex justify-between items-center p-4 cursor-pointer bg-slate-50 hover:bg-orange-50 transition">
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold">I</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Ibuprofeno</h3>
-                                    <p class="text-xs text-slate-500">AINH (Anti-inflamatório)</p>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform group-open:rotate-180"></i>
-                        </summary>
-                        <div class="p-5 border-t border-slate-100 text-sm text-slate-600 bg-white space-y-3">
-                            <div class="bg-red-50 p-2 rounded text-red-700 text-center font-bold border border-red-100">⛔ PROIBIDO PARA MENORES DE 6 MESES</div>
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <strong class="text-orange-700 block mb-1">Apresentação:</strong>
-                                    <p>Gotas 50mg/ml (mais diluído) ou 100mg/ml (concentrado).</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-700 block mb-1">Dose:</strong>
-                                    <p>5-10 mg/kg. <br>100mg/ml = <strong>1 gota/kg</strong>.<br>50mg/ml = <strong>2 gotas/kg</strong>.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-700 block mb-1">Indicação:</strong>
-                                    <p>Febre alta, dor inflamatória (otite, garganta).</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-700 block mb-1">Alertas:</strong>
-                                    <p>Evitar em suspeita de Dengue ou Varicela. Pode causar gastrite (dar com alimentos).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-
-                    <!-- Simeticona -->
-                    <details class="group bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
-                        <summary class="flex justify-between items-center p-4 cursor-pointer bg-slate-50 hover:bg-purple-50 transition">
-                            <div class="flex items-center gap-3">
-                                <span class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold">S</span>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Simeticona (Luftal)</h3>
-                                    <p class="text-xs text-slate-500">Antigases</p>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-down text-slate-400 transition-transform group-open:rotate-180"></i>
-                        </summary>
-                        <div class="p-5 border-t border-slate-100 text-sm text-slate-600 bg-white space-y-3">
-                            <p>Não é absorvido pelo organismo. Atua quebrando bolhas de gás no intestino.</p>
-                            <p><strong>Dose:</strong> 1 gota/kg. A cada 6 ou 8 horas.</p>
-                            <p><strong>Nota:</strong> Não previne cólica, apenas alivia o desconforto da distensão gasosa.</p>
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- Fórmulas Infantis -->
-            <div id="puer-formulas" class="content-section hidden fade-in pb-20">
-                <div class="mb-8 border-b border-slate-200 pb-4">
-                    <h2 class="text-3xl font-bold text-slate-800">Fórmulas Infantis</h2>
-                    <p class="text-slate-500">Indicação de substitutos do leite materno.</p>
-                </div>
-                
-                <div class="grid lg:grid-cols-2 gap-6">
-                    <!-- Fase 1 -->
-                    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                         <div class="bg-slate-50 p-4 border-b font-bold text-slate-700">Fórmulas de Partida (0 a 6 meses)</div>
-                         <div class="p-5 text-sm text-slate-600 space-y-3">
-                             <p>Nutrientes ajustados para rins imaturos. Relação caseína/proteína soro similar ao LM.</p>
-                             <div class="bg-blue-50 p-3 rounded border border-blue-100">
-                                 <strong class="block text-blue-800 mb-1">Marcas Comuns (Fase 1):</strong>
-                                 <ul class="list-disc pl-4">
-                                     <li>NAN Comfor 1 / Supreme 1</li>
-                                     <li>Aptamil Profutura 1 / Premium 1</li>
-                                     <li>Nestogeno 1 (Custo-benefício)</li>
-                                     <li>Enfamil Premium 1</li>
-                                 </ul>
-                             </div>
-                         </div>
-                    </div>
-                    <!-- Fase 2 -->
-                    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                         <div class="bg-slate-50 p-4 border-b font-bold text-slate-700">Fórmulas de Seguimento (6 meses +)</div>
-                         <div class="p-5 text-sm text-slate-600 space-y-3">
-                             <p>Maior teor de ferro e proteínas para acompanhar o crescimento rápido.</p>
-                             <div class="bg-indigo-50 p-3 rounded border border-indigo-100">
-                                 <strong class="block text-indigo-800 mb-1">Marcas Comuns (Fase 2):</strong>
-                                 <ul class="list-disc pl-4">
-                                     <li>NAN Comfor 2 / Supreme 2</li>
-                                     <li>Aptamil 2</li>
-                                     <li>Nestogeno 2</li>
-                                     <li>Enfamil 2</li>
-                                 </ul>
-                             </div>
-                         </div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-                    <h3 class="font-bold text-slate-800 mb-4">Fórmulas Especiais (Siglas)</h3>
-                    <div class="grid md:grid-cols-3 gap-4 text-sm">
-                        <div class="p-3 border rounded bg-slate-50">
-                            <strong class="text-purple-700">A.R. (Anti-Regurgitação)</strong>
-                            <p class="text-slate-600 mt-1">Espessada com amido. Para refluxo patológico (vômitos com perda de peso).</p>
-                        </div>
-                        <div class="p-3 border rounded bg-slate-50">
-                            <strong class="text-purple-700">S.L. (Sem Lactose)</strong>
-                            <p class="text-slate-600 mt-1">Para intolerância transitória (pós-diarreia). Não usar em APLV.</p>
-                        </div>
-                        <div class="p-3 border rounded bg-slate-50">
-                            <strong class="text-purple-700">H.A. (Hipoalergênica)</strong>
-                            <p class="text-slate-600 mt-1">Proteína parcialmente quebrada. Prevenção de alergia em histórico familiar.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 bg-yellow-50 border border-yellow-200 p-4 rounded-lg flex gap-3">
-                    <i class="fa-solid fa-triangle-exclamation text-yellow-600 mt-1"></i>
-                    <div class="text-sm text-yellow-800">
-                        <strong>Alerta de Preparo:</strong> Sempre usar a colher medida da lata (rasa, sem compactar). 1 medida para cada 30ml de água (regra geral, confira o rótulo). Água fervida e amornada.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Encaminhamentos, Dúvidas, DNPM e SOAP Puericultura (Mantidos e otimizados) -->
-            <!-- (Blocos de código mantidos da v4, inseridos na estrutura abaixo) -->
-            <div id="puer-encaminhamentos" class="content-section hidden fade-in pb-20">
-                <div class="mb-8"><h2 class="text-3xl font-bold text-slate-800">Encaminhamentos</h2></div>
+                <h2 class="text-2xl font-bold text-teal-900 mb-4 border-b border-teal-200 pb-2">Exame Físico Cefalocaudal</h2>
                 <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-white p-5 border-l-4 border-red-500 shadow-sm rounded"><h3 class="font-bold mb-2">Pediatra</h3><ul class="list-disc pl-4 text-sm"><li>Febre < 3m.</li><li>Perda peso.</li><li>Icterícia > 14d.</li><li>Sopro.</li></ul></div>
-                    <div class="bg-white p-5 border-l-4 border-purple-500 shadow-sm rounded"><h3 class="font-bold mb-2">Fonoaudiologia</h3><ul class="list-disc pl-4 text-sm"><li>Dificuldade sucção.</li><li>Teste Orelhinha alterado.</li><li>Atraso fala.</li><li>Respirador oral.</li></ul></div>
-                    <div class="bg-white p-5 border-l-4 border-blue-500 shadow-sm rounded"><h3 class="font-bold mb-2">Odontopediatria</h3><ul class="list-disc pl-4 text-sm"><li>1º dente.</li><li>Língua presa.</li><li>Cárie.</li><li>Trauma.</li></ul></div>
-                    <div class="bg-white p-5 border-l-4 border-green-500 shadow-sm rounded"><h3 class="font-bold mb-2">Nutrição</h3><ul class="list-disc pl-4 text-sm"><li>Obesidade.</li><li>Seletividade grave.</li><li>APLV.</li></ul></div>
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                        <h3 class="font-bold text-slate-700 mb-2">Antropometria</h3>
+                        <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                            <li><strong>Peso:</strong> Pesar despido. Ganho diário esperado: 20-30g (1º tri).</li>
+                            <li><strong>Comprimento:</strong> Régua antropométrica.</li>
+                            <li><strong>PC (Perímetro Cefálico):</strong> Fita acima da glabela e occipício. Essencial < 2 anos (Micro/Macrocefalia).</li>
+                            <li class="font-bold text-blue-600">Conduta: Plotar na Curva da OMS (Z-Score).</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-purple-500 shadow-sm">
+                        <h3 class="font-bold text-slate-700 mb-2">Cabeça e Pescoço</h3>
+                        <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                            <li><strong>Fontanelas:</strong> Bregmática (fecha 9-18m) e Lambdóide (fecha até 2m). Avaliar tensão.</li>
+                            <li><strong>Olhos:</strong> Teste de Bruckner (Reflexo Vermelho). Estrabismo (fisiológico até 4-6m).</li>
+                            <li><strong>Boca:</strong> Pérolas de Epstein, Dentes (erupção?), Candidíase, Freio lingual.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-green-500 shadow-sm">
+                        <h3 class="font-bold text-slate-700 mb-2">Tórax e Abdome</h3>
+                        <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                            <li><strong>Cardio:</strong> RCR 2T. Sopros? Palpar pulsos femorais (Coarctação aorta).</li>
+                            <li><strong>Respiratório:</strong> FR (contar 1 min). Tiragem subcostal? Batimento de asa nasal?</li>
+                            <li><strong>Abdome:</strong> Coto umbilical (sinais flogísticos? granuloma?). Hérnia umbilical (redutível?). Massas palpáveis?</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border-l-4 border-orange-500 shadow-sm">
+                        <h3 class="font-bold text-slate-700 mb-2">Genitália e Membros</h3>
+                        <ul class="text-sm text-slate-600 list-disc pl-4 space-y-1">
+                            <li><strong>Masc:</strong> Testículos (Criptorquidia >6m = cirurgia). Fimose, Hipospádia.</li>
+                            <li><strong>Fem:</strong> Sinéquia? Secreção?</li>
+                            <li><strong>Quadril:</strong> Manobras de Ortolani (abdução) e Barlow (adução) para Displasia.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="red-flag mt-4">
+                    <h4 class="font-bold text-red-800">🚨 Sinais de Alerta no Exame</h4>
+                    <ul class="list-disc pl-5 text-sm text-red-700">
+                        <li>Icterícia abaixo da zona do umbigo (Zona 3) ou > 14 dias.</li>
+                        <li>Cianose central (lábios/língua roxos).</li>
+                        <li>Petéquias ou equimoses sem trauma.</li>
+                        <li>Hipotonia global ("boneco de pano").</li>
+                    </ul>
                 </div>
             </div>
 
-            <div id="puer-duvidas" class="content-section hidden fade-in pb-20">
-                <div class="mb-8"><h2 class="text-3xl font-bold text-slate-800">Dúvidas & Condutas</h2></div>
-                <div class="space-y-3">
-                    <details class="group bg-white border rounded p-4"><summary class="font-bold cursor-pointer flex justify-between">Febre?<i class="fa-solid fa-chevron-down"></i></summary><p class="mt-2 text-sm"> >37.8ºC. Medicar se desconforto. < 3m = PS.</p></details>
-                    <details class="group bg-white border rounded p-4"><summary class="font-bold cursor-pointer flex justify-between">Cólicas<i class="fa-solid fa-chevron-down"></i></summary><p class="mt-2 text-sm">Fisiológico até 3m. Calor e massagem.</p></details>
-                    <details class="group bg-white border rounded p-4"><summary class="font-bold cursor-pointer flex justify-between">Assaduras<i class="fa-solid fa-chevron-down"></i></summary><p class="mt-2 text-sm">Higiene suave + Barreira. Fungo? Nistatina.</p></details>
-                    <details class="group bg-white border rounded p-4"><summary class="font-bold cursor-pointer flex justify-between">Vômito vs Regurgitação<i class="fa-solid fa-chevron-down"></i></summary><p class="mt-2 text-sm">Regurgitação: Passiva (normal). Vômito: Jato/Esforço (investigar).</p></details>
+            <!-- Neuro -->
+            <div id="puer-reflexos" class="content-section hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-teal-900 mb-4 border-b border-teal-200 pb-2">Exame Neurológico Detalhado</h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-purple-700 text-lg">1. Reflexo de Moro (O Abraço)</h3>
+                            <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">0 a 4-6 meses</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-2"><strong>Como fazer:</strong> Decúbito dorsal. Elevar levemente ombros e cabeça e soltar subitamente (amparando a cabeça).</p>
+                        <p class="text-sm text-slate-600 mb-2"><strong>Resposta:</strong> Extensão e abdução dos braços ("C" com dedos) seguida de adução (abraço) e choro.</p>
+                        <p class="text-xs text-red-600 font-bold bg-red-50 p-2 rounded inline-block">⚠️ Assimetria: Fratura Clavícula ou Lesão Plexo.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-purple-700 text-lg">2. Preensão (Palmar e Plantar)</h3>
+                            <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">Palmar: até 6m | Plantar: até 12m</span>
+                        </div>
+                        <p class="text-sm text-slate-600">Pressão na palma ou base dos dedos do pé -> Flexão forte dos dedos.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-purple-700 text-lg">3. Sucção e Busca</h3>
+                            <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-bold">0 a 3 meses</span>
+                        </div>
+                        <p class="text-sm text-slate-600">Toque na bochecha vira rosto. Dedo no palato suga forte.</p>
+                    </div>
+
+                    <div class="red-flag">
+                        <h4 class="font-bold text-red-800 mb-1">🚩 Red Flags Neurológicos</h4>
+                        <ul class="list-disc pl-5 text-sm text-red-700 space-y-1">
+                            <li><strong>Ausência:</strong> Depressão SNC, Hipotonia.</li>
+                            <li><strong>Persistência:</strong> Se não somem na idade certa -> Sugere Paralisia Cerebral.</li>
+                            <li><strong>Clônus:</strong> Tremor inesgotável do pé à dorsiflexão.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             
+            <!-- DNPM -->
             <div id="puer-desenvolvimento" class="content-section hidden fade-in pb-20">
-                <div class="mb-6"><h2 class="text-3xl font-bold text-slate-800">DNPM</h2><p>Selecione a idade.</p></div>
+                <div class="mb-6"><h2 class="text-3xl font-bold text-teal-900">DNPM</h2><p class="text-slate-600">Selecione a idade.</p></div>
                 <div class="flex overflow-x-auto pb-4 mb-4 gap-3 no-scrollbar snap-x">
-                    <button onclick="filterDev('0-2')" class="dev-tab active whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm" data-age="0-2">0-2 Meses</button>
-                    <button onclick="filterDev('3-4')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm" data-age="3-4">3-4 Meses</button>
-                    <button onclick="filterDev('6-9')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm" data-age="6-9">6-9 Meses</button>
-                    <button onclick="filterDev('12')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm" data-age="12">12 Meses</button>
-                    <button onclick="filterDev('18-24')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm" data-age="18-24">18-24 Meses</button>
+                    <button onclick="filterDev('0-2')" class="dev-tab active whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm transition" data-age="0-2">0-2 Meses</button>
+                    <button onclick="filterDev('3-4')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm transition" data-age="3-4">3-4 Meses</button>
+                    <button onclick="filterDev('6-9')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm transition" data-age="6-9">6-9 Meses</button>
+                    <button onclick="filterDev('12')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm transition" data-age="12">12 Meses</button>
+                    <button onclick="filterDev('18-24')" class="dev-tab whitespace-nowrap px-5 py-2.5 rounded-full border border-slate-200 bg-white text-sm font-bold shadow-sm transition" data-age="18-24">18-24 Meses</button>
                 </div>
-                <div id="puer-dev-content"></div>
+                <div id="puer-dev-display" class="space-y-4"></div>
             </div>
 
-            <div id="puer-evolucao" class="content-section hidden fade-in pb-20">
-                <div class="mb-6"><h2 class="text-3xl font-bold text-slate-800">SOAP Puericultura</h2></div>
+            <!-- Encaminhamentos -->
+            <div id="puer-encaminhamentos" class="content-section hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-teal-900 mb-4 border-b border-teal-200 pb-2">Critérios de Encaminhamento</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 border-l-4 border-red-500 rounded shadow-sm">
+                        <strong class="text-slate-800 block mb-2">Pediatra</strong>
+                        <ul class="list-disc pl-5 text-sm text-slate-600">
+                            <li>Febre em < 3 meses (Urgência).</li>
+                            <li>Curva de peso descendente.</li>
+                            <li>Sopro cardíaco novo.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 border-l-4 border-purple-500 rounded shadow-sm">
+                        <strong class="text-slate-800 block mb-2">Fonoaudiologia</strong>
+                        <ul class="list-disc pl-5 text-sm text-slate-600">
+                            <li>Dificuldade de sucção.</li>
+                            <li>Teste da Orelhinha falhado.</li>
+                            <li>Atraso de fala (>2 anos).</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 border-l-4 border-blue-500 rounded shadow-sm">
+                        <strong class="text-slate-800 block mb-2">Odontopediatria</strong>
+                        <ul class="list-disc pl-5 text-sm text-slate-600">
+                            <li>Erupção do 1º dente.</li>
+                            <li>Anquiloglossia (Língua presa).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Farmácia -->
+            <div id="puer-farmacia" class="content-section hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-teal-900 mb-4 border-b pb-2">Farmácia Clínica</h2>
+                
+                <!-- Calculadora -->
+                <div class="bg-teal-800 text-white p-6 rounded-xl shadow-lg mb-8">
+                    <label class="text-xs font-bold text-teal-200 uppercase block mb-2">Calculadora (Peso kg)</label>
+                    <div class="flex gap-4 items-center mt-1">
+                        <input type="number" id="puer-weight" class="w-24 bg-teal-900/50 border-2 border-teal-500 text-white text-3xl font-bold p-2 rounded-lg text-center focus:outline-none focus:border-white transition" placeholder="KG" oninput="calcPuerDose()">
+                        <div>
+                            <p class="text-3xl font-bold text-yellow-300 leading-none"><span id="puer-result">0</span> <span class="text-lg font-normal text-white/80">gotas</span></p>
+                            <p class="text-xs text-teal-200 mt-1">Regra Geral: 1 gota/kg/dose</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <details class="bg-white border rounded-lg p-4 group">
+                        <summary class="font-bold text-slate-800 cursor-pointer">💊 Paracetamol (200mg/ml)</summary>
+                        <div class="p-2 text-sm text-slate-600">1 gota/kg (10-15mg/kg). 4-6h. Seguro RN.</div>
+                    </details>
+                    <details class="bg-white border rounded-lg p-4 group">
+                        <summary class="font-bold text-slate-800 cursor-pointer">💊 Dipirona (500mg/ml)</summary>
+                        <div class="p-2 text-sm text-slate-600">1 gota/kg (10-25mg/kg). 6/6h. >3 meses ou >5kg.</div>
+                    </details>
+                    <details class="bg-white border rounded-lg p-4 group">
+                        <summary class="font-bold text-slate-800 cursor-pointer">💊 Ibuprofeno (50 ou 100mg/ml)</summary>
+                        <div class="p-2 text-sm text-slate-600"><span class="text-red-500 font-bold">Contraindicado < 6 meses.</span> Dose 100mg: 1gt/kg. Dose 50mg: 2gt/kg.</div>
+                    </details>
+                </div>
+                
+                <div class="mt-6 bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                    <h3 class="font-bold text-yellow-800 mb-1"><i class="fa-regular fa-sun"></i> Vitamina D (Profilaxia)</h3>
+                    <p class="text-sm text-slate-700"><strong>Obrigatório</strong> desde a 1ª semana até 2 anos.</p>
+                    <ul class="list-disc pl-5 text-sm text-slate-600 mt-1">
+                        <li>< 1 ano: 400 UI (2 gotas Addera D3).</li>
+                        <li>> 1 ano: 600 UI (3 gotas).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Fórmulas -->
+            <div id="puer-formulas" class="content-section hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-teal-900 mb-4">Fórmulas Infantis</h2>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 border rounded shadow-sm"><strong>Fase 1 (0-6m):</strong> NAN 1, Aptamil 1, Nestogeno 1.</div>
+                    <div class="bg-white p-4 border rounded shadow-sm"><strong>Fase 2 (>6m):</strong> NAN 2, Aptamil 2, Nestogeno 2.</div>
+                    <div class="bg-white p-4 border rounded shadow-sm">
+                        <strong>Especiais:</strong><br>
+                        AR (Refluxo), SL (Sem lactose - Diarreia), HA (Alergia).
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dúvidas -->
+            <div id="puer-duvidas" class="content-section hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-teal-900 mb-4">Dúvidas Comuns</h2>
+                <div class="space-y-2">
+                    <details class="bg-white p-4 rounded border"><summary class="font-bold">Febre?</summary><p class="text-sm mt-2"> >37.8ºC. Medicar se dor. < 3m = PS.</p></details>
+                    <details class="bg-white p-4 rounded border"><summary class="font-bold">Cólicas</summary><p class="text-sm mt-2">Fisiológico 15d-3m. Calor, massagem, colo.</p></details>
+                    <details class="bg-white p-4 rounded border"><summary class="font-bold">Vômito vs Regurgitação</summary><p class="text-sm mt-2">Regurgitação é passiva (normal). Vômito é jato (alerta).</p></details>
+                </div>
+            </div>
+
+            <!-- SOAP GENERATOR -->
+            <div id="puer-soap" class="content-section hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-teal-900 mb-4 border-b pb-2">Gerador SOAP (Padrão PEC)</h2>
                 <div class="grid lg:grid-cols-2 gap-6">
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-3">
-                        <input type="text" id="puer-soap-queixa" class="w-full p-2 border rounded text-sm" placeholder="Queixa Principal">
-                        <select id="puer-soap-alim" class="w-full p-2 border rounded text-sm"><option>AME</option><option>Fórmula</option><option>Misto</option><option>IA</option></select>
-                        <div class="grid grid-cols-3 gap-2">
-                            <input type="text" id="puer-soap-peso" class="p-2 border rounded text-sm" placeholder="Peso">
-                            <input type="text" id="puer-soap-est" class="p-2 border rounded text-sm" placeholder="Est">
-                            <input type="text" id="puer-soap-pc" class="p-2 border rounded text-sm" placeholder="PC">
+                        <div class="border-l-4 border-teal-500 pl-2 font-bold text-sm text-slate-700">S - Subjetivo</div>
+                        <input id="puer-soap-queixa" class="w-full p-2 border rounded text-sm mb-2" placeholder="Queixa Principal / Motivo">
+                        <div class="grid grid-cols-2 gap-2">
+                            <select id="puer-soap-alim" class="p-2 border rounded text-sm w-full"><option>AME (Livre Demanda)</option><option>Aleitamento Misto</option><option>Fórmula Infantil</option><option>IA em curso</option></select>
+                            <select id="puer-soap-vac" class="p-2 border rounded text-sm w-full"><option>Vacina em dia (Checado)</option><option>Vacina atrasada</option><option>Sem caderneta</option></select>
                         </div>
-                        <button onclick="gerarSOAPPuer()" class="w-full bg-teal-600 text-white font-bold py-2 rounded hover:bg-teal-700">Gerar</button>
+                        
+                        <div class="border-l-4 border-teal-500 pl-2 font-bold text-sm text-slate-700 mt-2">O - Objetivo</div>
+                        <div class="grid grid-cols-3 gap-2 mb-2">
+                            <input id="puer-soap-peso" class="p-2 border rounded text-sm" placeholder="Peso kg">
+                            <input id="puer-soap-est" class="p-2 border rounded text-sm" placeholder="Est cm">
+                            <input id="puer-soap-pc" class="p-2 border rounded text-sm" placeholder="PC cm">
+                        </div>
+                        <textarea id="puer-soap-ef" class="w-full p-2 border rounded text-sm h-20">BEG, corado, hidratado, anictérico, afebril. AC: RCR 2T BNF. AP: MV+ s/ RA. Abdome flácido, RHA+, indolor. Fontanela normotensa. Neuro: Reflexos presentes e simétricos. Pele íntegra.</textarea>
+                        
+                        <div class="border-l-4 border-teal-500 pl-2 font-bold text-sm text-slate-700 mt-2">A - Avaliação</div>
+                        <select id="puer-soap-ciap" class="w-full p-2 border rounded text-sm">
+                            <option value="A98">A98 - Medicina Preventiva / Saúde</option>
+                            <option value="T04">T04 - Problema Alimentação</option>
+                            <option value="A11">A11 - Dor torácica/Cólica</option>
+                            <option value="A03">A03 - Febre</option>
+                        </select>
+
+                        <div class="border-l-4 border-teal-500 pl-2 font-bold text-sm text-slate-700 mt-2">P - Plano</div>
+                        <div class="text-xs space-y-1">
+                            <label class="block"><input type="checkbox" id="puer-p1" checked> Antropometria + Caderneta</label>
+                            <label class="block"><input type="checkbox" id="puer-p2" checked> Orient. Sinais Alerta</label>
+                            <label class="block"><input type="checkbox" id="puer-p3" checked> Prescrição Vitamina D</label>
+                            <label class="block"><input type="checkbox" id="puer-p4"> Manejo Cólicas</label>
+                        </div>
+
+                        <button onclick="genPuerSOAP()" class="w-full bg-teal-700 text-white font-bold py-2 rounded hover:bg-teal-800 transition">Gerar Evolução</button>
                     </div>
-                    <div class="bg-slate-800 p-4 rounded-xl">
-                         <textarea id="puer-soap-res" class="w-full h-64 bg-transparent text-slate-300 font-mono text-xs outline-none resize-none" readonly>Preencha para gerar...</textarea>
-                         <button onclick="copyToClipboard('puer-soap-res')" class="mt-2 bg-slate-600 text-white text-xs px-3 py-1 rounded">Copiar</button>
+                    
+                    <div class="bg-slate-800 p-4 rounded-xl flex flex-col">
+                        <textarea id="puer-res" class="flex-1 bg-transparent text-slate-300 font-mono text-xs outline-none resize-none" readonly>Preencha os dados para gerar...</textarea>
+                        <button onclick="copyText('puer-res')" class="mt-2 bg-slate-600 text-white text-xs py-2 rounded hover:bg-slate-500 border border-slate-500 font-bold flex justify-center items-center gap-2"><i class="fa-regular fa-copy"></i> Copiar Texto</button>
                     </div>
                 </div>
             </div>
@@ -522,268 +415,384 @@
         </main>
     </div>
 
-    <!-- ================= VIEW GESTANTE (PRÉ-NATAL) ================= -->
-    <div id="view-gestante" class="hidden h-full flex flex-col md:flex-row">
-        <!-- Sidebar Gestante -->
-        <aside class="w-full md:w-72 bg-white border-r border-slate-200 flex-col h-auto md:h-screen sticky top-0 z-20 hidden md:flex shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
-            <div class="p-6 border-b border-slate-100 bg-pink-50 flex justify-between items-center">
-                <div>
-                    <h1 class="font-bold text-pink-900 text-lg">Pré-Natal</h1>
-                    <button onclick="navigateTo('home')" class="text-xs text-pink-600 hover:underline flex items-center gap-1 font-semibold"><i class="fa-solid fa-arrow-left"></i> Início</button>
-                </div>
-                <i class="fa-solid fa-person-pregnant text-pink-200 text-3xl"></i>
-            </div>
-            <nav class="flex-1 p-4 space-y-2 overflow-y-auto text-sm custom-scrollbar">
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mt-2 mb-1">Acompanhamento</p>
-                <button onclick="showSectionGest('gest-calc')" class="nav-btn-gest active w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-calculator w-4"></i> Calculadora IG/DPP</button>
-                <button onclick="showSectionGest('gest-cronograma')" class="nav-btn-gest w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-regular fa-calendar w-4"></i> Cronograma Consultas</button>
-                <button onclick="showSectionGest('gest-exames')" class="nav-btn-gest w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-microscope w-4"></i> Rotina de Exames</button>
-                <button onclick="showSectionGest('gest-posicoes')" class="nav-btn-gest w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-baby w-4"></i> Posições e Parto</button>
+    <!-- ================= VIEW GESTANTE ================= -->
+    <div id="view-gestante" class="hidden h-full flex flex-col md:flex-row theme-gest">
+        <aside class="w-full md:w-64 bg-white border-r border-slate-200 flex-col h-auto md:h-screen sticky top-0 z-20 hidden md:flex">
+            <div class="p-6 border-b bg-pink-50"><h1 class="font-bold text-pink-900">Pré-Natal</h1><button onclick="navigateTo('home')" class="text-xs text-pink-600 hover:underline font-bold"><i class="fa-solid fa-arrow-left"></i> Início</button></div>
+            <nav class="flex-1 p-2 space-y-1 overflow-y-auto text-sm">
+                <div class="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Consulta</div>
+                <button onclick="showSectionGest('gest-anamnese')" class="nav-btn-gest active w-full text-left px-3 py-2 rounded mb-1">Anamnese</button>
+                <button onclick="showSectionGest('gest-calc')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Calculadora IG/DPP</button>
+                <button onclick="showSectionGest('gest-exame')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Exame Físico</button>
+                <button onclick="showSectionGest('gest-posicoes')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Manobras Leopold</button>
                 
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mt-6 mb-1">Clínica</p>
-                <button onclick="showSectionGest('gest-vacinas')" class="nav-btn-gest w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-syringe w-4"></i> Vacinas & Meds</button>
-                <button onclick="showSectionGest('gest-queixas')" class="nav-btn-gest w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-comment-medical w-4"></i> Queixas Comuns</button>
-                <button onclick="showSectionGest('gest-alerta')" class="nav-btn-gest w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-triangle-exclamation w-4"></i> Sinais de Alerta</button>
-                
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mt-6 mb-1">Registro</p>
-                <button onclick="showSectionGest('gest-evolucao')" class="nav-btn-gest w-full text-left px-4 py-2.5 rounded-lg hover:bg-slate-50 flex gap-3 transition-colors"><i class="fa-solid fa-file-medical w-4"></i> Gerador SOAP</button>
+                <div class="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest mt-4 mb-1">Conduta</div>
+                <button onclick="showSectionGest('gest-cronograma')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Exames (MS)</button>
+                <button onclick="showSectionGest('gest-vacinas')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Vacinas & Meds</button>
+                <button onclick="showSectionGest('gest-queixas')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Queixas Comuns</button>
+                <button onclick="showSectionGest('gest-alerta')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Red Flags</button>
+                <button onclick="showSectionGest('gest-soap')" class="nav-btn-gest w-full text-left px-3 py-2 rounded mb-1">Gerador SOAP</button>
             </nav>
         </aside>
 
-        <!-- Mobile Header Gestante -->
-        <header class="md:hidden sticky top-0 bg-pink-700 text-white shadow-md z-30 w-full flex items-center justify-between p-4">
-            <div class="flex items-center gap-3">
-                <button onclick="navigateTo('home')" class="mr-2 text-pink-200 hover:text-white"><i class="fa-solid fa-arrow-left"></i></button>
-                <h1 class="font-bold text-lg">Pré-Natal</h1>
-            </div>
-            <button onclick="toggleMobileMenu('gest-mobile-menu')" class="p-2"><i class="fa-solid fa-bars text-xl"></i></button>
-        </header>
-        
-        <!-- Mobile Menu Gestante -->
-        <div id="gest-mobile-menu" class="fixed inset-0 bg-black/60 z-40 hidden" onclick="this.classList.add('hidden')">
-             <div class="bg-white w-64 h-full p-4 space-y-2 pt-20">
-                <p class="text-xs font-bold text-slate-400 uppercase">Menu</p>
-                <!-- (Botões mobile seriam replicados aqui via JS ou HTML estático) -->
-             </div>
-        </div>
-
-        <main class="flex-1 p-4 md:p-10 overflow-y-auto h-[calc(100vh-64px)] md:h-screen bg-slate-50 scroll-smooth">
-            
-            <!-- CALCULADORA GESTACIONAL -->
-            <div id="gest-calc" class="content-section-gest fade-in pb-20">
-                <div class="mb-8"><span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-bold uppercase">Ferramenta</span><h2 class="text-3xl font-bold text-slate-800 mt-2">Calculadora Gestacional</h2></div>
-                <div class="bg-pink-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-pink-700 rounded-full opacity-50 blur-3xl"></div>
-                    <label class="block text-pink-200 text-xs font-bold uppercase mb-2">Data da Última Menstruação (DUM)</label>
-                    <input type="date" id="gest-dum" class="w-full bg-white/10 border-2 border-pink-400/50 text-white text-xl p-3 rounded-xl mb-6 focus:outline-none focus:border-pink-400" onchange="calcGest()">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="bg-black/20 p-4 rounded-xl"><p class="text-pink-200 text-xs uppercase">Idade Gestacional (IG)</p><p class="text-3xl font-bold"><span id="res-ig-sem">0</span>s <span id="res-ig-dias">0</span>d</p></div>
-                        <div class="bg-black/20 p-4 rounded-xl"><p class="text-pink-200 text-xs uppercase">Data Provável (DPP)</p><p class="text-2xl font-bold" id="res-dpp">--/--/--</p></div>
-                    </div>
-                    <p class="text-xs text-pink-300 mt-4 italic">*Cálculo baseado na regra de Naegele (40 semanas).</p>
-                </div>
-            </div>
-
-            <!-- POSIÇÕES E ESTÁTICA -->
-            <div id="gest-posicoes" class="content-section-gest hidden fade-in pb-20">
-                <div class="mb-8 border-b border-slate-200 pb-4">
-                    <h2 class="text-3xl font-bold text-slate-800">Estática Fetal e Parto</h2>
-                    <p class="text-slate-600">Avaliação da posição do bebê (Manobras de Leopold) e fisiologia.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                        <h3 class="font-bold text-pink-800 mb-3">Situação (Eixo)</h3>
-                        <ul class="space-y-3 text-sm text-slate-600">
-                            <li class="flex items-center"><i class="fa-solid fa-arrow-up-long mr-3 text-slate-400"></i> <strong>Longitudinal:</strong> Eixo do bebê paralelo ao da mãe. (Ideal).</li>
-                            <li class="flex items-center"><i class="fa-solid fa-arrow-right-long mr-3 text-slate-400"></i> <strong>Transversa:</strong> Eixo do bebê perpendicular. (Indicação de Cesárea se persistir).</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                        <h3 class="font-bold text-pink-800 mb-3">Apresentação</h3>
-                        <ul class="space-y-3 text-sm text-slate-600">
-                            <li class="flex items-center"><i class="fa-solid fa-circle mr-3 text-green-500 text-[8px]"></i> <strong>Cefálica:</strong> Cabeça para baixo. Mais comum e favorável.</li>
-                            <li class="flex items-center"><i class="fa-solid fa-circle mr-3 text-orange-500 text-[8px]"></i> <strong>Pélvica:</strong> Sentado. "Pélvica Completa" (índio) ou "Incompleta" (bumbum p/ baixo).</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- QUEIXAS COMUNS -->
-            <div id="gest-queixas" class="content-section-gest hidden fade-in pb-20">
-                <div class="mb-8 border-b border-slate-200 pb-4"><h2 class="text-3xl font-bold text-slate-800">Queixas Comuns</h2></div>
+        <main class="flex-1 p-4 md:p-10 overflow-y-auto h-screen bg-slate-50 scroll-smooth">
+            <!-- Anamnese Gestante -->
+             <div id="gest-anamnese" class="content-section-gest fade-in pb-20">
+                <h2 class="text-2xl font-bold text-pink-900 mb-4">Anamnese Obstétrica</h2>
                 <div class="space-y-3">
-                    <details class="group bg-white border rounded-lg p-4"><summary class="font-bold cursor-pointer flex justify-between text-slate-800">Náuseas e Vômitos<i class="fa-solid fa-chevron-down text-slate-400 transition"></i></summary><p class="mt-2 text-sm text-slate-600">Comer pequenas porções, evitar jejum prolongado, alimentos frios/secos. Gengibre ajuda.</p></details>
-                    <details class="group bg-white border rounded-lg p-4"><summary class="font-bold cursor-pointer flex justify-between text-slate-800">Pirose (Azia)<i class="fa-solid fa-chevron-down text-slate-400 transition"></i></summary><p class="mt-2 text-sm text-slate-600">Evitar café, fritura, líquidos nas refeições. Não deitar logo após comer. Elevar cabeceira.</p></details>
-                    <details class="group bg-white border rounded-lg p-4"><summary class="font-bold cursor-pointer flex justify-between text-slate-800">Edema e Cãibras<i class="fa-solid fa-chevron-down text-slate-400 transition"></i></summary><p class="mt-2 text-sm text-slate-600">Elevar pernas, meias de compressão, reduzir sal. Cãibras: Alongamento e massagem, ingestão de Potássio (banana).</p></details>
-                    <details class="group bg-white border rounded-lg p-4"><summary class="font-bold cursor-pointer flex justify-between text-slate-800">Dor Lombar<i class="fa-solid fa-chevron-down text-slate-400 transition"></i></summary><p class="mt-2 text-sm text-slate-600">Postura, sapatos baixos, calor local, faixas de sustentação.</p></details>
+                    <details class="bg-white p-4 border rounded"><summary class="font-bold text-slate-700">Histórico Obstétrico</summary><p class="text-sm mt-2">Gesta, Para, Abortos. Partos anteriores (Vaginal/Cesárea). Intercorrências. DUM.</p></details>
+                    <details class="bg-white p-4 border rounded"><summary class="font-bold text-slate-700">Histórico Atual</summary><p class="text-sm mt-2">Planejada? Sintomas atuais? Sangramento? Perda de líquido?</p></details>
+                </div>
+            </div>
+            
+            <!-- CALC -->
+            <div id="gest-calc" class="content-section-gest hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-pink-900 mb-4">Calculadora Gestacional</h2>
+                <div class="bg-pink-900 text-white p-8 rounded-xl shadow-lg">
+                    <label class="block text-xs font-bold uppercase mb-2">DUM</label>
+                    <input type="date" id="gest-dum" class="w-full bg-pink-800 border border-pink-400 text-white p-3 rounded-lg mb-4" onchange="calcGest()">
+                    <div class="flex gap-8">
+                        <div><p class="text-xs uppercase opacity-70">IG Atual</p><p class="text-3xl font-bold"><span id="res-ig-sem">0</span>s <span id="res-ig-dias">0</span>d</p></div>
+                        <div><p class="text-xs uppercase opacity-70">DPP (40s)</p><p class="text-3xl font-bold" id="res-dpp">--/--</p></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- OUTRAS SEÇÕES (CRONOGRAMA, EXAMES, VACINAS, ALERTA) -->
-            <!-- (Estruturas mantidas e otimizadas, renderizadas via HTML estático para brevidade mas completas no código final) -->
-            
-            <div id="gest-cronograma" class="content-section-gest hidden fade-in pb-20">
-                 <div class="mb-6"><h2 class="text-3xl font-bold text-pink-900">Cronograma</h2></div>
-                 <div class="space-y-2">
-                     <div class="p-4 bg-white border-l-4 border-green-500 rounded shadow-sm"><strong>Mensal:</strong> Até 28s.</div>
-                     <div class="p-4 bg-white border-l-4 border-yellow-500 rounded shadow-sm"><strong>Quinzenal:</strong> 28-36s.</div>
-                     <div class="p-4 bg-white border-l-4 border-red-500 rounded shadow-sm"><strong>Semanal:</strong> 36-41s.</div>
+            <!-- ALERTA -->
+            <div id="gest-alerta" class="content-section-gest hidden fade-in pb-20">
+                 <h2 class="text-2xl font-bold text-pink-900 mb-4">Sinais de Alerta (Urgência)</h2>
+                 <div class="space-y-4">
+                     <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded shadow-sm">
+                         <h3 class="font-bold text-red-800 text-lg mb-2">Pré-Eclâmpsia</h3>
+                         <p class="text-sm text-slate-700"><strong>Sinais:</strong> PA ≥ 140/90 mmHg + Cefaleia, Escotomas, Dor epigástrica.</p>
+                     </div>
                  </div>
             </div>
 
-            <div id="gest-exames" class="content-section-gest hidden fade-in pb-20">
-                 <div class="mb-6"><h2 class="text-3xl font-bold text-pink-900">Exames</h2></div>
-                 <div class="bg-white p-4 rounded shadow mb-4"><strong>1º Tri:</strong> Tipagem, Hemograma, VDRL, HIV, HbsAg, Toxo, Urina, USG.</div>
-                 <div class="bg-white p-4 rounded shadow mb-4"><strong>2º Tri:</strong> TOTG (24-28s), Coombs (se Rh-).</div>
-                 <div class="bg-white p-4 rounded shadow"><strong>3º Tri:</strong> Repetir sorologias, Hemograma, Cultura Streptococo B (35-37s).</div>
+            <!-- CRONOGRAMA/EXAMES -->
+            <div id="gest-cronograma" class="content-section-gest hidden fade-in pb-20">
+                 <h2 class="text-2xl font-bold text-pink-900 mb-4">Exames de Rotina (MS)</h2>
+                 <div class="grid md:grid-cols-3 gap-4 text-sm">
+                     <div class="bg-white p-4 border-t-4 border-pink-400 rounded shadow-sm"><strong>1º Tri:</strong> Tipagem, Hemograma, VDRL, HIV, HbsAg, Toxo, Urina, USG.</div>
+                     <div class="bg-white p-4 border-t-4 border-pink-600 rounded shadow-sm"><strong>2º Tri:</strong> TOTG (24-28s), Coombs (se Rh-).</div>
+                     <div class="bg-white p-4 border-t-4 border-pink-800 rounded shadow-sm"><strong>3º Tri:</strong> Repetir sorologias, Hemograma, Strepto B (35-37s).</div>
+                 </div>
+            </div>
+            
+            <!-- Exame Fisico -->
+            <div id="gest-exame" class="content-section-gest hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-pink-900 mb-4">Exame Físico</h2>
+                <div class="bg-white p-6 border rounded shadow-sm">
+                    <ul class="list-disc pl-5 text-sm text-slate-600 space-y-2">
+                        <li><strong>PA:</strong> Aferir sentada. >140/90 = Alerta.</li>
+                        <li><strong>Peso:</strong> Acompanhar ganho ponderal (Curva de Atalah).</li>
+                        <li><strong>AU (Altura Uterina):</strong> Medir da sínfise púbica ao fundo.</li>
+                        <li><strong>BCF:</strong> 110-160 bpm.</li>
+                        <li><strong>Edema:</strong> Mãos/Face é patológico. MMII comum (avaliar cacifo).</li>
+                    </ul>
+                </div>
             </div>
 
+            <!-- POSICOES -->
+            <div id="gest-posicoes" class="content-section-gest hidden fade-in pb-20">
+                 <h2 class="text-2xl font-bold text-pink-900 mb-4">Manobras de Leopold</h2>
+                 <div class="space-y-2 bg-white p-5 rounded border border-slate-200 text-sm text-slate-600">
+                     <p><strong>1ª Manobra:</strong> Fundo Uterino (O que está no fundo? Cabeça ou nádegas?).</p>
+                     <p><strong>2ª Manobra:</strong> Dorso Fetal (Onde estão as costas? Onde auscultar BCF?).</p>
+                     <p><strong>3ª Manobra:</strong> Mobilidade do polo inferior (Encaixado?).</p>
+                 </div>
+            </div>
+            
+            <!-- VACINAS -->
             <div id="gest-vacinas" class="content-section-gest hidden fade-in pb-20">
-                 <div class="mb-6"><h2 class="text-3xl font-bold text-pink-900">Vacinas e Meds</h2></div>
-                 <ul class="list-disc pl-5 space-y-2 bg-white p-6 rounded shadow">
-                     <li><strong>dTpa:</strong> >20sem (Toda gestação).</li>
-                     <li><strong>Hepatite B:</strong> 3 doses.</li>
-                     <li><strong>Influenza:</strong> Sazonal.</li>
-                     <li><strong>Meds:</strong> Ácido Fólico (até 12s) e Sulfato Ferroso (>20s).</li>
-                 </ul>
+                 <h2 class="text-2xl font-bold text-pink-900 mb-4">Vacinas & Suplementos</h2>
+                 <div class="grid md:grid-cols-2 gap-4">
+                     <div class="bg-white p-4 border-l-4 border-blue-500 rounded shadow">
+                         <strong class="text-slate-800">Vacinas</strong>
+                         <ul class="text-sm text-slate-600 list-disc pl-4 mt-1">
+                             <li>dT (completar esquema).</li>
+                             <li>dTpa (>20 sem, toda gestação).</li>
+                             <li>Hepatite B.</li>
+                             <li>Influenza.</li>
+                         </ul>
+                     </div>
+                     <div class="bg-white p-4 border-l-4 border-green-500 rounded shadow">
+                         <strong class="text-slate-800">Suplementação</strong>
+                         <ul class="text-sm text-slate-600 list-disc pl-4 mt-1">
+                             <li>Ácido Fólico (até 12s).</li>
+                             <li>Sulfato Ferroso (>20s).</li>
+                         </ul>
+                     </div>
+                 </div>
+            </div>
+            
+            <!-- QUEIXAS -->
+            <div id="gest-queixas" class="content-section-gest hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-pink-900 mb-4">Queixas Comuns</h2>
+                <div class="space-y-2">
+                    <details class="bg-white p-4 rounded border"><summary class="font-bold">Náuseas</summary><p class="text-sm mt-2">Fracionar dieta, evitar jejum.</p></details>
+                    <details class="bg-white p-4 rounded border"><summary class="font-bold">Azia</summary><p class="text-sm mt-2">Evitar café/fritura. Não deitar após comer.</p></details>
+                </div>
             </div>
 
-            <div id="gest-alerta" class="content-section-gest hidden fade-in pb-20">
-                 <div class="mb-6"><h2 class="text-3xl font-bold text-pink-900">Sinais de Alerta</h2></div>
-                 <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-4"><strong>Pré-Eclâmpsia:</strong> PA > 140/90 + Cefaleia, Escotomas, Edema súbito.</div>
-                 <div class="bg-orange-50 border-l-4 border-orange-500 p-4"><strong>TPP/Aborto:</strong> Sangramento, Perda líquido, Cólicas rítmicas.</div>
-            </div>
-
-            <!-- SOAP GESTANTE -->
-            <div id="gest-evolucao" class="content-section-gest hidden fade-in pb-20">
-                <div class="mb-6"><h2 class="text-3xl font-bold text-pink-900">Gerador SOAP Obstétrico</h2></div>
+            <!-- SOAP GEST -->
+            <div id="gest-soap" class="content-section-gest hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-pink-900 mb-4">Gerador SOAP Obstétrico</h2>
                 <div class="grid lg:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-4">
-                        <div class="grid grid-cols-2 gap-2">
-                             <input type="text" id="pn-ig" class="p-2 border rounded text-sm" placeholder="IG (Semanas)">
-                             <input type="text" id="pn-dum" class="p-2 border rounded text-sm" placeholder="DUM">
-                        </div>
-                        <textarea id="pn-queixa" class="w-full p-2 border rounded h-16 text-sm" placeholder="Queixa (ex: Náuseas, dor lombar)"></textarea>
-                        <div class="grid grid-cols-3 gap-2">
-                             <input type="text" id="pn-au" class="p-2 border rounded text-sm" placeholder="AU (cm)">
-                             <input type="text" id="pn-bcf" class="p-2 border rounded text-sm" placeholder="BCF (bpm)">
-                             <input type="text" id="pn-pa" class="p-2 border rounded text-sm" placeholder="PA (mmHg)">
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                             <input type="text" id="pn-peso" class="p-2 border rounded text-sm" placeholder="Peso (kg)">
-                             <select id="pn-mf" class="p-2 border rounded text-sm"><option>MF Presentes</option><option>MF Diminuídos</option></select>
-                        </div>
-                        <label class="flex items-center gap-2"><input type="checkbox" id="pn-edema" class="text-pink-600"> Edema presente</label>
-                        <button onclick="gerarSOAPGest()" class="w-full bg-pink-600 text-white font-bold py-2 rounded hover:bg-pink-700 transition">Gerar</button>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 space-y-3">
+                        <div class="grid grid-cols-2 gap-2"><input id="pn-ig" class="p-2 border rounded text-sm" placeholder="IG"><input id="pn-dum" class="p-2 border rounded text-sm" placeholder="DUM"></div>
+                        <textarea id="pn-queixa" class="w-full p-2 border rounded text-sm h-12" placeholder="Queixa"></textarea>
+                        <div class="grid grid-cols-3 gap-2"><input id="pn-au" class="p-2 border rounded text-sm" placeholder="AU"><input id="pn-bcf" class="p-2 border rounded text-sm" placeholder="BCF"><input id="pn-pa" class="p-2 border rounded text-sm" placeholder="PA"></div>
+                        <button onclick="genGestSOAP()" class="w-full bg-pink-600 text-white font-bold py-2 rounded">Gerar</button>
                     </div>
-                    <div class="bg-slate-800 p-4 rounded-xl">
-                        <textarea id="pn-resultado" class="w-full h-64 bg-transparent text-slate-300 font-mono text-xs outline-none resize-none" readonly>Preencha os dados...</textarea>
-                        <button onclick="copyToClipboard('pn-resultado')" class="mt-2 bg-slate-600 text-white text-xs px-3 py-1 rounded">Copiar</button>
+                    <div class="bg-slate-800 p-4 rounded-xl flex flex-col">
+                        <textarea id="pn-res" class="flex-1 bg-transparent text-slate-300 font-mono text-xs outline-none resize-none" readonly>...</textarea>
+                        <button onclick="copyText('pn-res')" class="mt-2 bg-slate-600 text-white text-xs px-3 py-1 rounded">Copiar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- ================= VIEW ESTOMOTERAPIA ================= -->
+    <div id="view-estomoterapia" class="hidden h-full flex flex-col md:flex-row theme-esto">
+        <aside class="w-full md:w-64 bg-white border-r border-slate-200 flex-col h-auto md:h-screen sticky top-0 z-20 hidden md:flex">
+            <div class="p-6 border-b bg-amber-50"><h1 class="font-bold text-amber-900">Estomoterapia</h1><button onclick="navigateTo('home')" class="text-xs text-amber-700 hover:underline font-bold"><i class="fa-solid fa-arrow-left"></i> Início</button></div>
+            <nav class="flex-1 p-2 space-y-1 overflow-y-auto text-sm">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 mt-2 mb-1">Avaliação</p>
+                <button onclick="showSectionEsto('esto-anamnese')" class="nav-btn-esto active w-full text-left px-3 py-2 rounded mb-1">Anamnese Feridas</button>
+                <button onclick="showSectionEsto('esto-time')" class="nav-btn-esto w-full text-left px-3 py-2 rounded mb-1">Avaliação TIME</button>
+                <button onclick="showSectionEsto('esto-tipos')" class="nav-btn-esto w-full text-left px-3 py-2 rounded mb-1">Classificação LPP</button>
+                
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 mt-4 mb-1">Tratamento</p>
+                <button onclick="showSectionEsto('esto-limpeza')" class="nav-btn-esto w-full text-left px-3 py-2 rounded mb-1">Limpeza</button>
+                <button onclick="showSectionEsto('esto-coberturas')" class="nav-btn-esto w-full text-left px-3 py-2 rounded mb-1">Coberturas</button>
+                <button onclick="showSectionEsto('esto-duvidas')" class="nav-btn-esto w-full text-left px-3 py-2 rounded mb-1">Dúvidas Comuns</button>
+                <button onclick="showSectionEsto('esto-soap')" class="nav-btn-esto w-full text-left px-3 py-2 rounded mb-1">Gerador SOAP</button>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-4 md:p-10 overflow-y-auto h-screen bg-slate-50 scroll-smooth">
+            <!-- Anamnese Esto -->
+            <div id="esto-anamnese" class="content-section-esto fade-in pb-20">
+                <h2 class="text-2xl font-bold text-amber-900 mb-4">Anamnese de Feridas</h2>
+                <div class="bg-white p-6 rounded border border-slate-200">
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><strong>Histórico:</strong> Como surgiu? Há quanto tempo? Tratamentos anteriores?</li>
+                        <li><strong>Comorbidades:</strong> Diabetes (controle?), HAS, Doença Vascular, Tabagismo.</li>
+                        <li><strong>Dor:</strong> Escala 0-10. Piora ao elevar ou abaixar o membro?</li>
+                        <li><strong>Nutrição:</strong> Aporte proteico e hídrico adequado?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TIME -->
+            <div id="esto-time" class="content-section-esto hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-amber-900 mb-4 border-b border-amber-200 pb-2">Avaliação TIME</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-amber-500">
+                        <strong class="text-2xl text-amber-600 block mb-1">T - Tissue</strong>
+                        <p class="text-sm text-slate-600">Viável (Vermelho)? Esfacelo (Amarelo)? Necrose (Preto)? -> Desbridar.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-red-500">
+                        <strong class="text-2xl text-red-600 block mb-1">I - Infection</strong>
+                        <p class="text-sm text-slate-600">Sinais flogísticos? Odor? Exsudato purulento? -> Antimicrobiano (Prata/PHMB).</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-blue-500">
+                        <strong class="text-2xl text-blue-600 block mb-1">M - Moisture</strong>
+                        <p class="text-sm text-slate-600">Seca? (Hidratar). Exsudativa? (Absorver).</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-green-500">
+                        <strong class="text-2xl text-green-600 block mb-1">E - Edge</strong>
+                        <p class="text-sm text-slate-600">Macerada? Epitelizando? -> Proteger bordas.</p>
                     </div>
                 </div>
             </div>
 
+            <!-- TIPOS -->
+            <div id="esto-tipos" class="content-section-esto hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-amber-900 mb-4">Classificação LPP (NPUAP)</h2>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 border-l-4 border-red-500 rounded shadow-sm">
+                        <ul class="text-sm text-slate-600 mt-2 list-disc pl-4">
+                            <li><strong>Estágio 1:</strong> Pele íntegra, eritema não branqueável.</li>
+                            <li><strong>Estágio 2:</strong> Perda parcial (derme). Bolha.</li>
+                            <li><strong>Estágio 3:</strong> Perda total. Gordura visível.</li>
+                            <li><strong>Estágio 4:</strong> Osso/tendão visível.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COBERTURAS -->
+            <div id="esto-coberturas" class="content-section-esto hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-amber-900 mb-4">Guia de Coberturas</h2>
+                <div class="space-y-3">
+                    <details class="bg-white border rounded-lg p-4 group"><summary class="font-bold text-amber-700">Alginato (Ca)</summary><p class="text-sm mt-2">Alta absorção, hemostasia. Feridas exsudativas.</p></details>
+                    <details class="bg-white border rounded-lg p-4 group"><summary class="font-bold text-blue-700">Hidrogel</summary><p class="text-sm mt-2">Hidratação, desbridamento. Feridas secas/necrose.</p></details>
+                    <details class="bg-white border rounded-lg p-4 group"><summary class="font-bold text-slate-700">Hidrocolóide</summary><p class="text-sm mt-2">Oclusivo. LPP estágio 1-2. Pouco exsudato.</p></details>
+                    <details class="bg-white border rounded-lg p-4 group"><summary class="font-bold text-slate-500">Prata / Carvão</summary><p class="text-sm mt-2">Infeccionadas, odor fétido.</p></details>
+                    <details class="bg-white border rounded-lg p-4 group"><summary class="font-bold text-green-700">Colagenase</summary><p class="text-sm mt-2">Enzimático. Necrose/Esfacelo.</p></details>
+                </div>
+            </div>
+
+            <!-- LIMPEZA -->
+            <div id="esto-limpeza" class="content-section-esto hidden fade-in pb-20">
+                 <h2 class="text-2xl font-bold text-amber-900 mb-4">Limpeza</h2>
+                 <div class="bg-white p-4 rounded border text-sm text-slate-700">
+                     <ul class="list-disc pl-5">
+                         <li>SF 0.9% (Jato).</li>
+                         <li>PHMB (Infecção).</li>
+                     </ul>
+                 </div>
+            </div>
+            
+            <!-- DUVIDAS ESTO -->
+            <div id="esto-duvidas" class="content-section-esto hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-amber-900 mb-4">Dúvidas Feridas</h2>
+                <div class="space-y-2">
+                    <details class="bg-white p-4 rounded border"><summary class="font-bold">Pode molhar no banho?</summary><p class="text-sm mt-2">Idealmente não. Proteger com plástico. Se molhar, trocar curativo.</p></details>
+                    <details class="bg-white p-4 rounded border"><summary class="font-bold">Açúcar ou Mel?</summary><p class="text-sm mt-2">Não recomendado em protocolos hospitalares modernos (risco contaminação).</p></details>
+                </div>
+            </div>
+
+            <!-- SOAP ESTO -->
+            <div id="esto-soap" class="content-section-esto hidden fade-in pb-20">
+                <h2 class="text-2xl font-bold text-amber-900 mb-4">SOAP Feridas</h2>
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 space-y-3">
+                        <input id="fer-local" class="w-full p-2 border rounded text-sm" placeholder="Local">
+                        <div class="grid grid-cols-2 gap-2"><input id="fer-tam" class="p-2 border rounded text-sm" placeholder="Tam"><input id="fer-prof" class="p-2 border rounded text-sm" placeholder="Profundidade"></div>
+                        <select id="fer-cobertura" class="w-full p-2 border rounded text-sm"><option>Alginato</option><option>Hidrogel</option><option>Colagenase</option><option>Placa</option></select>
+                        <button onclick="genEstoSOAP()" class="w-full bg-amber-600 text-white font-bold py-2 rounded">Gerar</button>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-xl flex flex-col">
+                        <textarea id="fer-res" class="flex-1 bg-transparent text-slate-300 font-mono text-xs outline-none resize-none" readonly>...</textarea>
+                        <button onclick="copyText('fer-res')" class="mt-2 bg-slate-600 text-white text-xs px-3 py-1 rounded">Copiar</button>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
-    <!-- Scripts Lógica -->
+    <!-- Scripts -->
     <script>
-        // --- Roteamento e Navegação ---
         function navigateTo(viewId) {
             document.querySelectorAll('[id^="view-"]').forEach(v => v.classList.add('hidden'));
             document.getElementById('view-' + viewId).classList.remove('hidden');
+            // Reset inicial para UX
             if(viewId === 'puericultura') showSection('puer-anamnese');
             if(viewId === 'gestante') showSectionGest('gest-calc');
+            if(viewId === 'estomoterapia') showSectionEsto('esto-tipos');
         }
 
-        function toggleMobileMenu(id) {
-            const menu = document.getElementById(id);
-            if(menu) menu.classList.toggle('hidden');
+        function copyText(id) {
+            const t = document.getElementById(id);
+            t.select(); document.execCommand('copy'); alert('Copiado!');
         }
 
-        function copyToClipboard(id) {
-            const text = document.getElementById(id);
-            text.select();
-            document.execCommand('copy');
-            alert('Copiado!');
-        }
-
-        // --- Puericultura ---
-        const devData = {
-            '0-2': { motor: 'Postura fletida. Levanta queixo.', social: '<strong>Sorriso Social</strong> (~2m).' },
-            '3-4': { motor: 'Sustenta cabeça. Rola.', social: 'Ri alto, "conversa".' },
-            '6-9': { motor: 'Senta s/ apoio (6m). Engatinha (9m).', social: 'Estranha desconhecidos.' },
-            '12': { motor: 'Anda com apoio.', social: 'Dá tchau, fala mama/papa.' },
-            '18-24': { motor: 'Corre, chuta bola.', social: 'Frases 2 palavras.' }
-        };
-        function filterDev(age) {
-            const d = devData[age];
-            document.getElementById('puer-dev-content').innerHTML = `<div class="bg-white p-4 border-l-4 border-teal-500 rounded"><h3 class="font-bold text-teal-800">Motor</h3><p>${d.motor}</p></div><div class="bg-white p-4 border-l-4 border-teal-500 rounded mt-2"><h3 class="font-bold text-teal-800">Social</h3><p>${d.social}</p></div>`;
-            document.querySelectorAll('.dev-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll(`.dev-tab[data-age="${age}"]`).forEach(t => t.classList.add('active'));
-        }
-
+        // --- Puericultura Logic ---
         function showSection(id) {
-            document.querySelectorAll('#view-puericultura .content-section').forEach(el => el.classList.add('hidden'));
-            document.getElementById(id).classList.remove('hidden');
+            const target = document.getElementById(id);
+            if (!target) return;
+            document.querySelectorAll('#view-puericultura [id^="puer-"]').forEach(el => {
+                 // Só esconde as divs de conteudo (que não são menu ou sidebar)
+                 if(el.classList.contains('content-section')) el.classList.add('hidden');
+            });
+            target.classList.remove('hidden');
             document.querySelectorAll('.nav-btn-puer').forEach(btn => btn.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            document.getElementById('puer-mobile-menu').classList.add('hidden');
         }
-
         function calcPuerDose() {
             const w = parseFloat(document.getElementById('puer-weight').value) || 0;
             document.getElementById('puer-result').innerText = Math.round(w);
         }
-
-        function gerarSOAPPuer() {
-             const queixa = document.getElementById('puer-soap-queixa').value || "Rotina";
+        function genPuerSOAP() {
+             let queixa = document.getElementById('puer-soap-queixa').value.trim() || "Puericultura de rotina.";
+             const alim = document.getElementById('puer-soap-alim').value;
+             const vac = document.getElementById('puer-soap-vac').value;
+             const S = `S: Mãe comparece à consulta. Motivo: ${queixa} \nAlimentação: ${alim}. Vacinação: ${vac}. Eliminações fisiológicas e sono preservados.`;
              const peso = document.getElementById('puer-soap-peso').value || "__";
              const est = document.getElementById('puer-soap-est').value || "__";
              const pc = document.getElementById('puer-soap-pc').value || "__";
-             const alim = document.getElementById('puer-soap-alim').value;
-             
-             const txt = `S: Mãe refere: ${queixa}. Alimentação: ${alim}. Eliminações fisiológicas presentes.\nO: Peso: ${peso}kg | Est: ${est}cm | PC: ${pc}cm. BEG, corado, hidratado. Exame físico s/ alterações.\nA: CD adequado para idade.\nP: Orientações de rotina e vacinas. Agendado retorno.`;
-             document.getElementById('puer-soap-res').value = txt;
+             const exame = document.getElementById('puer-soap-ef').value;
+             const O = `O: Peso: ${peso}kg | Est: ${est}cm | PC: ${pc}cm (Curvas OMS). \nExame Físico: ${exame}`;
+             const ciapText = document.getElementById('puer-soap-ciap').options[document.getElementById('puer-soap-ciap').selectedIndex].text;
+             const A = `A: CIAP-2: ${ciapText}. CD adequado para a idade.`;
+             let i = 1; const P_list = [];
+             if(document.getElementById('puer-p1').checked) P_list.push(`${i++}. Avaliação antropométrica.`);
+             if(document.getElementById('puer-p3').checked) P_list.push(`${i++}. Prescrito/Renovado Vitamina D.`);
+             if(document.getElementById('puer-p2').checked) P_list.push(`${i++}. Orientada sobre sinais de alerta.`);
+             if(document.getElementById('puer-p4').checked) P_list.push(`${i++}. Orientada sobre manejo de cólicas.`);
+             P_list.push(`${i++}. Agendado retorno.`);
+             document.getElementById('puer-soap-res').value = `${S}\n\n${O}\n\n${A}\n\nP:\n${P_list.join('\n')}`;
         }
 
-        // --- Gestante ---
+        // --- Gestante Logic ---
         function showSectionGest(id) {
-            document.querySelectorAll('#view-gestante .content-section-gest').forEach(el => el.classList.add('hidden'));
-            document.getElementById(id).classList.remove('hidden');
+            const target = document.getElementById(id);
+            if (!target) return;
+            document.querySelectorAll('#view-gestante [id^="gest-"]').forEach(el => {
+                if(el.classList.contains('content-section-gest')) el.classList.add('hidden');
+            });
+            target.classList.remove('hidden');
             document.querySelectorAll('.nav-btn-gest').forEach(btn => btn.classList.remove('active'));
             event.currentTarget.classList.add('active');
-            document.getElementById('gest-mobile-menu').classList.add('hidden');
         }
-
         function calcGest() {
-            const dumInput = document.getElementById('gest-dum').value;
-            if(!dumInput) return;
-            const dum = new Date(dumInput);
-            const hoje = new Date();
-            const diffDays = Math.ceil(Math.abs(hoje - dum) / (1000 * 60 * 60 * 24));
-            const dpp = new Date(dum); dpp.setDate(dum.getDate() + 280);
-            document.getElementById('res-ig-sem').innerText = Math.floor(diffDays / 7);
-            document.getElementById('res-ig-dias').innerText = diffDays % 7;
+            const d = new Date(document.getElementById('gest-dum').value);
+            if(!d.getTime()) return;
+            const diff = Math.ceil(Math.abs(new Date() - d) / (864e5));
+            const dpp = new Date(d); dpp.setDate(d.getDate()+280);
+            document.getElementById('res-ig-sem').innerText = Math.floor(diff/7);
+            document.getElementById('res-ig-dias').innerText = diff%7;
             document.getElementById('res-dpp').innerText = dpp.toLocaleDateString('pt-BR');
         }
-
-        function gerarSOAPGest() {
-            const ig = document.getElementById('pn-ig').value || "__";
-            const queixa = document.getElementById('pn-queixa').value || "Rotina";
-            const au = document.getElementById('pn-au').value || "__";
-            const bcf = document.getElementById('pn-bcf').value || "__";
-            const pa = document.getElementById('pn-pa').value || "__";
-            const peso = document.getElementById('pn-peso').value || "__";
-            const mf = document.getElementById('pn-mf').value;
-            const edema = document.getElementById('pn-edema').checked ? "Edema presente (+/4+)" : "Sem edemas";
-
-            const txt = `S: Gestante (IG: ${ig} sem). Queixa: ${queixa}. ${mf}.\nO: PA: ${pa}mmHg | Peso: ${peso}kg | AU: ${au}cm | BCF: ${bcf}bpm. ${edema}. BEG, corada, hidratada.\nA: Pré-natal risco habitual.\nP: Prescrito sulfato ferroso/ácido fólico. Orientada sinais de parto e alarme.`;
-            document.getElementById('pn-resultado').value = txt;
+        function genGestSOAP() {
+            const t = `S: Gestante, IG: ${document.getElementById('pn-ig').value}s. Queixa: ${document.getElementById('pn-queixa').value || 'Rotina'}. ${document.getElementById('pn-mf').value}.\nO: PA: ${document.getElementById('pn-pa').value}mmHg | Peso: ${document.getElementById('pn-peso').value}kg | AU: ${document.getElementById('pn-au').value}cm | BCF: ${document.getElementById('pn-bcf').value}bpm. ${document.getElementById('pn-edema').checked ? 'Edema +' : 'S/ Edema'}.\nA: Pré-natal risco habitual.\nP: Prescritos sulfato ferroso/ácido fólico. Orientada sinais de parto.`;
+            document.getElementById('pn-resultado').value = t;
         }
 
-        // Inicializa com Puericultura 0-2 meses
-        document.getElementById('puer-dev-content').innerHTML = `<div class="bg-white p-4 border-l-4 border-teal-500 rounded"><h3 class="font-bold text-teal-800">Motor</h3><p>${devData['0-2'].motor}</p></div>`;
+        // --- Estomoterapia Logic ---
+        function showSectionEsto(id) {
+            const target = document.getElementById(id);
+            if (!target) return;
+            document.querySelectorAll('#view-estomoterapia [id^="esto-"]').forEach(el => {
+                if(el.classList.contains('content-section-esto')) el.classList.add('hidden');
+            });
+            target.classList.remove('hidden');
+            document.querySelectorAll('.nav-btn-esto').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+        function genEstoSOAP() {
+            const t = `S: Paciente c/ lesão em ${document.getElementById('fer-local').value}. Queixa álgica controlada.\nO: Lesão ${document.getElementById('fer-tam').value}cm. ${document.getElementById('fer-cobertura').value}.\nA: Ferida em processo de cicatrização.\nP: Limpeza SF 0.9%. Cobertura oclusiva.`;
+            document.getElementById('fer-res').value = t;
+        }
+
+        // Init
+        function filterDev(age) {
+            const map = {
+                '0-2': { title: '0-2 Meses', motor: 'Postura fletida. Levanta queixo em prono.', social: 'Sorriso Social (~2m). Fixa o olhar.' },
+                '3-4': { title: '3-4 Meses', motor: 'Sustenta cabeça firme. Junta mãos na linha média. Rola.', social: 'Ri alto, grita, emite sons vogais.' },
+                '6-9': { title: '6-9 Meses', motor: 'Senta s/ apoio (6m). Engatinha e faz Pinça (9m).', social: 'Estranha desconhecidos. Esconde-achou.' },
+                '12': { title: '12 Meses', motor: 'Anda com apoio ou livre. Pega objetos pequenos.', social: 'Dá tchau. Fala mama/papa com sentido.' },
+                '18-24': { title: '18-24 Meses', motor: 'Corre, chuta bola, sobe degraus.', social: 'Frases de 2 palavras. Início da autonomia.' }
+            };
+            const d = map[age];
+            const display = document.getElementById('puer-dev-display');
+            if (display) {
+                display.innerHTML = `
+                    <h3 class="font-bold text-teal-800 mb-2 border-b pb-1">${d.title}</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div><strong class="text-sm text-slate-500 block">MOTOR</strong><p class="text-slate-700 text-sm">${d.motor}</p></div>
+                        <div><strong class="text-sm text-slate-500 block">SOCIAL</strong><p class="text-slate-700 text-sm">${d.social}</p></div>
+                    </div>`;
+            }
+            document.querySelectorAll('.dev-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll(`.dev-tab[data-age="${age}"]`).forEach(t => t.classList.add('active'));
+        }
+        // Initialize first section for each view to avoid blank state
+        // No need to call manually, buttons handle it on click, home is default
     </script>
 </body>
 </html>
