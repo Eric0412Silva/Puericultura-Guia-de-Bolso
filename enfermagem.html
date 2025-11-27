@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-full antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Bolso: Puericultura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para ícones médicos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        .nav-btn.active {
+            background-color: #0d9488; /* teal-600 */
+            color: white;
+            border-left: 4px solid #134e4a; /* teal-900 */
+        }
+        
+        .dev-tab.active {
+            background-color: #f0fdfa; /* teal-50 */
+            border-color: #0d9488; /* teal-600 */
+            color: #0f766e; /* teal-700 */
+        }
+
+        /* Animação suave para troca de conteúdo */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 h-full flex flex-col md:flex-row">
+
+    <!-- Sidebar (Menu) -->
+    <aside class="w-full md:w-72 bg-white border-r border-slate-200 flex-shrink-0 flex flex-col h-auto md:h-screen sticky top-0 z-20">
+        <div class="p-6 border-b border-slate-100 bg-teal-50">
+            <div class="flex items-center gap-3">
+                <div class="bg-teal-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-user-nurse"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-teal-900 text-lg">Puericultura</h1>
+                    <p class="text-xs text-teal-600">Guia de Bolso</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <button onclick="showSection('anamnese')" class="nav-btn active w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
+                <i class="fa-solid fa-clipboard-list w-5"></i> O "Ritual" (Anamnese)
+            </button>
+            <button onclick="showSection('exame')" class="nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
+                <i class="fa-solid fa-stethoscope w-5"></i> Exame Físico
+            </button>
+            <button onclick="showSection('desenvolvimento')" class="nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
+                <i class="fa-solid fa-shapes w-5"></i> Marcos do Desenvolvimento
+            </button>
+            <button onclick="showSection('farmacia')" class="nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
+                <i class="fa-solid fa-pills w-5"></i> Farmácia & Vitamina D
+            </button>
+            <button onclick="showSection('dica')" class="nav-btn w-full text-left px-4 py-3 rounded-lg hover:bg-slate-50 transition flex items-center gap-3 text-sm font-medium text-slate-600">
+                <i class="fa-solid fa-lightbulb w-5"></i> Dica de Ouro
+            </button>
+        </nav>
+
+        <div class="p-4 border-t border-slate-100 text-center text-xs text-slate-400">
+            Uso profissional • Enfermagem
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 md:p-10 overflow-y-auto h-screen bg-slate-50">
+        
+        <!-- SECTION: ANAMNESE -->
+        <div id="anamnese" class="content-section max-w-4xl mx-auto fade-in">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-teal-900 mb-2">O "Ritual" da Chegada</h2>
+                <p class="text-slate-600">Antes de tocar na criança, conquiste a confiança da família.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                    <i class="fa-regular fa-square-check text-teal-500"></i> Checklist de Perguntas
+                </h3>
+                <div class="space-y-3">
+                    <label class="flex items-center p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-500 border-gray-300 mr-3">
+                        <div>
+                            <span class="font-medium text-slate-800">Queixa Principal</span>
+                            <p class="text-sm text-slate-500">"Como ele(a) está? Aconteceu algo diferente?"</p>
+                        </div>
+                    </label>
+                    <label class="flex items-center p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-500 border-gray-300 mr-3">
+                        <div>
+                            <span class="font-medium text-slate-800">Alimentação (< 6m)</span>
+                            <p class="text-sm text-slate-500">Aleitamento exclusivo? Fórmula? (Avaliar pega/sucção)</p>
+                        </div>
+                    </label>
+                    <label class="flex items-center p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-500 border-gray-300 mr-3">
+                        <div>
+                            <span class="font-medium text-slate-800">Alimentação (> 6m)</span>
+                            <p class="text-sm text-slate-500">Introdução alimentar: aceitação e texturas.</p>
+                        </div>
+                    </label>
+                    <label class="flex items-center p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-500 border-gray-300 mr-3">
+                        <div>
+                            <span class="font-medium text-slate-800">Eliminações</span>
+                            <p class="text-sm text-slate-500">Xixi (cor/frequência) e Cocô (consistência/frequência).</p>
+                        </div>
+                    </label>
+                    <label class="flex items-center p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-500 border-gray-300 mr-3">
+                        <div>
+                            <span class="font-medium text-slate-800">Sono e Vacinas</span>
+                            <p class="text-sm text-slate-500">Rotina de sono, segurança do berço e Caderneta em dia.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: EXAME FÍSICO -->
+        <div id="exame" class="content-section max-w-4xl mx-auto hidden fade-in">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-teal-900 mb-2">Exame Físico</h2>
+                <p class="text-slate-600">Mão na massa! Seja rápida e gentil.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Antropometria -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-blue-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h3 class="font-bold text-slate-800">Antropometria</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm">
+                        <li>Peso</li>
+                        <li>Comprimento</li>
+                        <li>Perímetro Cefálico (PC)</li>
+                        <li class="font-medium text-blue-700">Atenção: Plotar nas Curvas da OMS!</li>
+                    </ul>
+                </div>
+
+                <!-- Cabeça -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-purple-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded bg-purple-100 text-purple-600 flex items-center justify-center"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="font-bold text-slate-800">Cabeça</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">Palpe as fontanelas (moleiras).</p>
+                    <div class="mt-2 flex gap-2 text-xs">
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded">Normativa</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded">Abaulada?</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 rounded">Deprimida?</span>
+                    </div>
+                </div>
+
+                <!-- Pele e Boca -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-pink-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded bg-pink-100 text-pink-600 flex items-center justify-center"><i class="fa-solid fa-hand-dots"></i></div>
+                        <h3 class="font-bold text-slate-800">Pele & Boca</h3>
+                    </div>
+                    <ul class="text-sm text-slate-600 space-y-1">
+                        <li><span class="font-medium">Pele:</span> Brotoejas, dermatites, icterícia.</li>
+                        <li><span class="font-medium">Boca:</span> Sapinho (candidíase), nascimento de dentes.</li>
+                    </ul>
+                </div>
+
+                <!-- Genitália -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-orange-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded bg-orange-100 text-orange-600 flex items-center justify-center"><i class="fa-solid fa-restroom"></i></div>
+                        <h3 class="font-bold text-slate-800">Genitália</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="bg-blue-50 p-2 rounded border border-blue-100">
+                            <strong class="block text-blue-800">Meninos</strong>
+                            <span class="text-slate-600">Testículos na bolsa?</span>
+                        </div>
+                        <div class="bg-pink-50 p-2 rounded border border-pink-100">
+                            <strong class="block text-pink-800">Meninas</strong>
+                            <span class="text-slate-600">Sinéquia?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: DESENVOLVIMENTO -->
+        <div id="desenvolvimento" class="content-section max-w-4xl mx-auto hidden fade-in">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-teal-900 mb-2">Marcos do Desenvolvimento</h2>
+                <p class="text-slate-600">Verificando se o sistema neurológico está "ligando os fios".</p>
+            </div>
+
+            <!-- Tabs de Idade -->
+            <div class="flex overflow-x-auto pb-2 mb-6 gap-2 no-scrollbar">
+                <button onclick="filterDev('0-2')" class="dev-tab active whitespace-nowrap px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-medium hover:bg-slate-50 transition">0 a 2 Meses</button>
+                <button onclick="filterDev('3-4')" class="dev-tab whitespace-nowrap px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-medium hover:bg-slate-50 transition">3 a 4 Meses</button>
+                <button onclick="filterDev('6-9')" class="dev-tab whitespace-nowrap px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-medium hover:bg-slate-50 transition">6 a 9 Meses</button>
+                <button onclick="filterDev('12')" class="dev-tab whitespace-nowrap px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-medium hover:bg-slate-50 transition">12 Meses</button>
+                <button onclick="filterDev('18-24')" class="dev-tab whitespace-nowrap px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-medium hover:bg-slate-50 transition">18 a 24 Meses</button>
+            </div>
+
+            <!-- Cards de Conteúdo (Dinâmicos) -->
+            <div id="dev-content" class="space-y-4">
+                <!-- Conteúdo injetado via JS -->
+            </div>
+        </div>
+
+        <!-- SECTION: FARMÁCIA -->
+        <div id="farmacia" class="content-section max-w-4xl mx-auto hidden fade-in">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-teal-900 mb-2">Farmacinha & Suplementação</h2>
+                <p class="text-slate-600 mb-4">Doses comuns na prática pediátrica. <span class="text-red-500 font-bold">Sempre confira a prescrição médica.</span></p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <!-- Calculadora -->
+                <div class="bg-teal-900 text-white p-6 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-teal-700 rounded-full opacity-50"></div>
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-calculator mr-2"></i> Calculadora de Gotas</h3>
+                    <p class="text-teal-200 text-sm mb-4">Regra padrão: 1 gota por kg.</p>
+                    
+                    <label class="block text-sm font-medium mb-1">Peso da Criança (kg)</label>
+                    <input type="number" id="weightInput" placeholder="Ex: 10" class="w-full p-3 rounded text-slate-900 text-lg font-bold mb-6 focus:outline-none focus:ring-4 focus:ring-teal-500/50" oninput="calculateDose()">
+
+                    <div class="space-y-3 bg-teal-800/50 p-4 rounded-lg">
+                        <div class="flex justify-between items-center border-b border-teal-700 pb-2">
+                            <span>Paracetamol (Bebê)</span>
+                            <span class="font-bold text-yellow-400 text-lg"><span id="result-parac">0</span> gotas</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-teal-700 pb-2">
+                            <span>Dipirona (500mg/ml)</span>
+                            <span class="font-bold text-yellow-400 text-lg"><span id="result-dipi">0</span> gotas</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Ibuprofeno (100mg/ml)</span>
+                            <span class="font-bold text-yellow-400 text-lg"><span id="result-ibu">0</span> gotas</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-teal-300 mt-4 italic">* Ibuprofeno apenas > 6 meses. Intervalo de 6/6h.</p>
+                </div>
+
+                <!-- Cards Informativos -->
+                <div class="space-y-6">
+                    <!-- Vitamina D -->
+                    <div class="bg-yellow-50 p-5 rounded-xl border border-yellow-200">
+                        <h3 class="font-bold text-yellow-800 flex items-center gap-2 mb-2">
+                            <i class="fa-regular fa-sun"></i> Vitamina D (SBP)
+                        </h3>
+                        <div class="space-y-2 text-sm text-slate-700">
+                            <p><strong>Início:</strong> 1ª semana de vida até 2 anos.</p>
+                            <div class="flex justify-between bg-white p-2 rounded border border-yellow-100">
+                                <span>&lt; 1 ano:</span>
+                                <span class="font-bold">400 UI/dia (± 2 gotas)</span>
+                            </div>
+                            <div class="flex justify-between bg-white p-2 rounded border border-yellow-100">
+                                <span>&gt; 1 ano:</span>
+                                <span class="font-bold">600 UI/dia (± 3 gotas)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Antialérgicos -->
+                    <div class="bg-red-50 p-5 rounded-xl border border-red-200">
+                        <h3 class="font-bold text-red-800 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Antialérgicos
+                        </h3>
+                        <ul class="text-sm text-slate-700 space-y-1">
+                            <li><span class="text-red-600 font-bold">&lt; 6 meses:</span> NÃO USAR (risco de sedação/morte súbita). Use lavagem nasal.</li>
+                            <li><span class="font-semibold">Acima de 6m/1a:</span> Desloratadina (menos sono) ou Polaramine (dá sono).</li>
+                            <li><span class="font-semibold">Corticóide:</span> Prednisolona (1mg/kg) apenas em crises fortes e indicação médica.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: DICA DE OURO -->
+        <div id="dica" class="content-section max-w-4xl mx-auto hidden fade-in">
+            <div class="h-full flex items-center justify-center pt-10">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 text-white p-10 rounded-2xl shadow-xl text-center max-w-2xl relative">
+                    <i class="fa-solid fa-quote-left text-4xl text-teal-300 opacity-50 absolute top-6 left-6"></i>
+                    <h2 class="text-2xl font-bold mb-4">Dica de Ouro da Enfermeira 💡</h2>
+                    <p class="text-xl leading-relaxed font-light">
+                        "Ao final da consulta, empodere a família. Diga: <br>
+                        <span class="font-bold bg-white/20 px-2 py-1 rounded inline-block mt-2">'Vocês estão fazendo um ótimo trabalho. O bebê está crescendo bem.'</span>"
+                    </p>
+                    <p class="mt-6 text-teal-100 text-sm">Isso vale mais que qualquer remédio.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Dados dos Marcos do Desenvolvimento
+        const devData = {
+            '0-2': {
+                motor: 'Postura fletida (dobradinho). Levanta um pouco o queixo quando de bruços.',
+                social: '<span class="text-teal-600 font-bold">Sorriso Social</span> (Marco principal ~2m). Fixa olhar na mãe.'
+            },
+            '3-4': {
+                motor: 'Sustenta a cabeça firme (pescoço durinho). Junta mãos na linha média. Começa a rolar.',
+                social: 'Ri alto, grita, sons de vogais ("conversas"). Leva tudo à boca.'
+            },
+            '6-9': {
+                motor: '6m: Senta sem apoio (trípode).<br>9m: Engatinha (nem todos), senta firme, faz a <span class="text-teal-600 font-bold">Pinça</span> (indicador + polegar).',
+                social: 'Estranha desconhecidos. Brinca de "esconde-achou".'
+            },
+            '12': {
+                motor: 'Anda com apoio ou dá os primeiros passos livres.',
+                social: 'Dá tchau, bate palminhas. Fala "mama/papa" com sentido.'
+            },
+            '18-24': {
+                motor: 'Corre, chuta bola, sobe degraus.',
+                social: 'Junta duas palavras ("quer água"). Início da autonomia (e das birras!).'
+            }
+        };
+
+        // Função de Navegação
+        function showSection(id) {
+            // Esconder todas as seções
+            document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden'));
+            // Mostrar a selecionada
+            document.getElementById(id).classList.remove('hidden');
+            
+            // Atualizar Sidebar
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            // Lógica simples para achar o botão clicado (poderia ser melhorado com IDs nos botões)
+            event.currentTarget.classList.add('active');
+        }
+
+        // Função dos Marcos de Desenvolvimento
+        function filterDev(age) {
+            // Atualizar Tabs
+            document.querySelectorAll('.dev-tab').forEach(tab => tab.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // Renderizar Conteúdo
+            const data = devData[age];
+            const container = document.getElementById('dev-content');
+            
+            container.innerHTML = `
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm fade-in">
+                    <h3 class="text-lg font-bold text-teal-800 mb-4 border-b pb-2">Motor</h3>
+                    <p class="text-slate-700 text-lg">${data.motor}</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm fade-in">
+                    <h3 class="text-lg font-bold text-teal-800 mb-4 border-b pb-2">Social & Linguagem</h3>
+                    <p class="text-slate-700 text-lg">${data.social}</p>
+                </div>
+            `;
+        }
+
+        // Calculadora de Gotas
+        function calculateDose() {
+            const weight = parseFloat(document.getElementById('weightInput').value);
+            
+            if (!weight || weight <= 0) {
+                document.getElementById('result-parac').innerText = '0';
+                document.getElementById('result-dipi').innerText = '0';
+                document.getElementById('result-ibu').innerText = '0';
+                return;
+            }
+
+            // Regra: 1 gota por kg
+            // Arredondamos para baixo ou cima? Geralmente na prática arredonda-se matematicamente, 
+            // mas por segurança em demos, usamos o inteiro mais próximo ou o valor exato se inteiro.
+            const drops = Math.round(weight); 
+
+            document.getElementById('result-parac').innerText = drops;
+            document.getElementById('result-dipi').innerText = drops;
+            document.getElementById('result-ibu').innerText = drops;
+        }
+
+        // Inicialização
+        filterDev('0-2'); // Carregar primeira aba de desenvolvimento
+        
+        // Simular clique no primeiro botão de navegação para setar estado inicial visual
+        // (O HTML já tem a classe active, mas isso garante consistência se recarregar)
+    </script>
+</body>
+</html>
